@@ -25,21 +25,26 @@ def build_list():
     with open('recipe_ids.txt') as f:
         all_recipes = f.readlines()
     all_recipes = [x.strip() for x in all_recipes]
-    test = all_recipes[:2]
-    for recipe_id in test:
-        if len(recipe_id) > 5:
+    for i, recipe_id in enumerate(all_recipes):
+        accum = []
+        if len(recipe_id) > 1:
+            print(recipe_id)
             r = str(get_one_recipe(recipe_id).text)
             print(r)
-            k = Key(BUCKET)
-            k.key = "test"
-            k.set_contents_from_string(r)
+            accum.append(r)
+        if i%10000 == 0:
+            with open('/tmp/test.json','wb') as f:
+                for line in accum:
+                    f.write(line + '\n')
+            s3 = boto3.resource('s3')                                                                                         
+            s3.Object('sudofood', 'recipe_json%s.json'%(i)).put(Body=open('/tmp/test.json','rb'))
+            accum = []
+            
+            #k = Key(BUCKET)
+            #k.key = "test"
+            #k.set_contents_from_string(r)
 
-#build_list()
-with open('~/hello.txt','w') as f:
-    f.write('hello from local!')
-s3 = boto3.resource('s3')
-#s3.Bucket('sudofood').put_object(Key='test4', Body= a)
-#object = s3.Object('sudofood','test5.txt')
-#object.put(Body=a)
-s3.Object('sudofood', 'hello.txt').put(Body=open('~/hello.txt','r'))
-print(a)
+build_list()
+#s3 = boto3.resource('s3')
+#s3.Object('sudofood', 'hello.txt').put(Body=open('/tmp/hello.txt','rb'))
+
