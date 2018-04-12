@@ -10,7 +10,7 @@ class User(models.Model):
     city = models.CharField(max_length=100)
     weight = models.PositiveSmallIntegerField()
     height = models.PositiveSmallIntegerField()
-   
+ 
     LOSE_WEIGHT = 'LW'
     MAINTAIN_WEIGHT = 'MW'
     GAIN_WEIGHT = 'GW'
@@ -19,7 +19,8 @@ class User(models.Model):
         (MAINTAIN_WEIGHT, 'Maintain Weight'),
         (GAIN_WEIGHT, 'Gain Weight'),
     )
-    goal = models.CharField(max_length=2, choices=GOALS, default=MAINTAIN_WEIGHT)
+    goal = models.CharField(max_length=2, choices=GOALS,
+			default=MAINTAIN_WEIGHT)
     MALE = 'M'
     FEMALE = 'F'
     GENDER = (
@@ -40,7 +41,8 @@ class User(models.Model):
         (ACTIVE, 'Active'),
         (VERY_ACTIVE, 'Very Active'),
     )
-    activity_level = models.CharField(max_length=2, choices=LEVELS, default=LIGHTLY_ACTIVE)
+    activity_level = models.CharField(max_length=2, choices=LEVELS,
+				default=LIGHTLY_ACTIVE)
 
     workouts_per_week = models.PositiveSmallIntegerField()
     workout_minutes = models.PositiveSmallIntegerField()
