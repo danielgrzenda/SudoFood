@@ -60,5 +60,5 @@ def build_list():
             obj.put(Body=json.dumps(data))
             data = []
 
-
-#build_list()
+if "name" == "__main__":
+    build_list()
