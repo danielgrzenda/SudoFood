@@ -1,7 +1,6 @@
 API Reference
 ============================
-.. automodule:: Data\ Acquistion/
-                   yummly_api.py
+.. automodule:: yummly_api
 		:members:
 		:undoc-members:
 
