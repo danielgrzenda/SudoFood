@@ -26,5 +26,7 @@ venv/
 
 ## How to Run Our Application
 
+source venv/bin/activate
+cd sudofood/
 python manage.py runserver  
 go to http://localhost:8000
