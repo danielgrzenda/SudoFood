@@ -1,3 +1,0 @@
-Introduction to SudoFood
-============================
-SudoFood is an application that aids users in discovering new recipes that align with their dietary preferences. Whether that be adhering to a diet for weight-loss purposes, allergies, or just because, SudoFood can help. SudoFood consist's of a simple easy to use interface that recommend and/or generate original recipes based on a user’s flavor profile. That is how: ‘Superusers do food!’
