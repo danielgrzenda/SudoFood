@@ -3,10 +3,11 @@ import pandas as pd
 import requests
 import json
 import boto3
+import sys
 
 # The ID and KEYS needed to access the Yummly API
-ID = '8738e7a2'
-KEY = '234f4fe2774becb61689975054fb6d03'
+ID = sys.argv[1]
+KEY = sys.argv[2]
 
 
 def recipe_search(search_params=None):
