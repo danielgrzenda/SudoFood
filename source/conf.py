@@ -18,7 +18,7 @@
 #
 import os
 import sys
-sys.path.insert(0, os.path.abspath('../DataAcquistion/.'))
+sys.path.insert(0, os.path.abspath('../DataAcquistion/'))
 
 
 # -- General configuration ------------------------------------------------
@@ -35,7 +35,6 @@ extensions = ['sphinx.ext.autodoc',
     'sphinx.ext.intersphinx',
     'sphinx.ext.todo',
     'sphinx.ext.coverage',
-    'sphinx.ext.ifconfig',
     'sphinx.ext.viewcode',
     'sphinx.ext.githubpages']
 
