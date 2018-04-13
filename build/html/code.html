@@ -42,8 +42,35 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="api-reference">
-<h1>API Reference<a class="headerlink" href="#api-reference" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="module-yummly_api">
+<span id="api-reference"></span><h1>API Reference<a class="headerlink" href="#module-yummly_api" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="yummly_api.build_list">
+<code class="descclassname">yummly_api.</code><code class="descname">build_list</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/yummly_api.html#build_list"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yummly_api.build_list" title="Permalink to this definition">¶</a></dt>
+<dd><p>For every 10 recipes pulled, this function dumps said recipes into a
+single json file and uploads it to the S3 bucket.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="yummly_api.get_one_recipe">
+<code class="descclassname">yummly_api.</code><code class="descname">get_one_recipe</code><span class="sig-paren">(</span><em>recipe_id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/yummly_api.html#get_one_recipe"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yummly_api.get_one_recipe" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the corresponding recipe for each recipe id</p>
+<dl class="docutils">
+<dt>recipe_id <span class="classifier-delimiter">:</span> <span class="classifier">str</span></dt>
+<dd>Recipe id that was pulled from search recipe</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="yummly_api.recipe_search">
+<code class="descclassname">yummly_api.</code><code class="descname">recipe_search</code><span class="sig-paren">(</span><em>search_params=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/yummly_api.html#recipe_search"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yummly_api.recipe_search" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns recipe ids from YummlyAPI based on the given search parameters.</p>
+<dl class="docutils">
+<dt>search_params <span class="classifier-delimiter">:</span> <span class="classifier">dict</span></dt>
+<dd>Any parameters that the user wishes to search by</dd>
+</dl>
+</dd></dl>
+
 </div>
 
 

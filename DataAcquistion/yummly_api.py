@@ -61,4 +61,4 @@ def build_list():
             data = []
 
 
-build_list()
+#build_list()
