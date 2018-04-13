@@ -5,6 +5,7 @@ from django.views import generic
 
 """This creates a user view for the signup page"""
 
+
 class SignUp(generic.CreateView):
     """This is the view for the sign up page.
     After a user creates an account this will send them back to the login page.
