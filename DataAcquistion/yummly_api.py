@@ -46,11 +46,11 @@ def build_list():
     For every 10 recipes pulled, this function dumps said recipes into a
     single json file and uploads it to the S3 bucket.
     """
-    with open('recipe_ids.txt') as f:
+    with open('./recipe_ids.txt') as f:
         all_recipes = f.readlines()
     all_recipes = [x.strip() for x in all_recipes]
     data = []
-    for i, recipe_id in enumerate(all_recipes)[1002:]:
+    for i, recipe_id in enumerate(all_recipes[2002:]):
         if len(recipe_id) > 1:
             response = get_one_recipe(recipe_id)
             data.append(response.text)
@@ -61,5 +61,5 @@ def build_list():
             data = []
 
 
-if "name" == "__main__":
+if __name__ == "__main__":
     build_list()
