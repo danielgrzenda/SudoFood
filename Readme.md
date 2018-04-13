@@ -27,7 +27,7 @@ venv/
 ## How to Run Our Application
 
 source venv/bin/activate
-pip install -r requirements.txt
+pip3 install -r requirements.txt
 cd sudofood/
-python manage.py runserver  
+python3 manage.py runserver  
 go to http://localhost:8000
