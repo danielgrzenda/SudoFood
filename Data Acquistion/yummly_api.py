@@ -40,7 +40,7 @@ def build_list():
         all_recipes = f.readlines()
     all_recipes = [x.strip() for x in all_recipes]
     data = []
-    for i, recipe_id in enumerate(all_recipes):
+    for i, recipe_id in enumerate(all_recipes)[1002:]:
         if len(recipe_id) > 1:
             response = get_one_recipe(recipe_id)
             data.append(response.text) 
