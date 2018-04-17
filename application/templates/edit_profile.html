@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Edit Profile</h1>
+    <form action="" method="post">
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.country.label }} <br>
+            {{ form.country(size=20) }} <br>
+            {% for error in form.country.errors %}
+            <span style="color:red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.city.label }} <br>
+            {{ form.city(size=20) }} <br>
+            {% for error in form.city.errors %}
+            <span style="color:red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.date_of_birth.label }} <br>
+            {{ form.date_of_birth }} <br>
+            {% for error in form.date_of_birth.errors %}
+            <span style="color:red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.sex.label }} <br>
+            {{ form.sex }} <br>
+            {% for error in form.sex.errors %}
+            <span style="color:red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+
+        <p>
+            {{ form.weight.label }} <br>
+            {{ form.weight }} <br>
+            {% for error in form.weight.errors %}
+            <span style="color:red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.height.label }} <br>
+            {{ form.height }} <br>
+            {% for error in form.height.errors %}
+            <span style="color:red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.workouts_per_week.label }} <br>
+            {{ form.workouts_per_week }} <br>
+            {% for error in form.workouts_per_week.errors %}
+            <span style="color:red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.goal.label }} <br>
+            {{ form.goal }} <br>
+            {% for error in form.goal.errors %}
+            <span style="color:red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.activity_level.label }} <br>
+            {{ form.activity_level }} <br>
+            {% for error in form.activity_level.errors %}
+            <span style="color:red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p> {{ form.submit() }} </p>
+    </form>
+{% endblock %}
+
+
+
