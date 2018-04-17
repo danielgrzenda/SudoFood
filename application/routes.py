@@ -11,7 +11,7 @@ from datetime import datetime
 def index():
     return render_template('index.html',title="Home")
 
-@ app.route('/user/<username>')
+@app.route('/user/<username>')
 @login_required
 def user(username):
     user = User.query.filter_by(username=username).first_or_404()
@@ -40,6 +40,12 @@ def login():
             next_page = url_for('user', username=current_user.username)
         return redirect(next_page)
     return render_template('login.html', title='Sign In', form=form)
+
+@app.route('/your_recipes')
+@login_required
+def your_recipes():
+    recipes = InputRecipe.query.filter_by(user_id=current_user.id)
+    return render_template('your_recipes.html', title='Your Recipes', user=current_user, recipes=recipes)
 
 @app.route('/logout')
 @login_required
