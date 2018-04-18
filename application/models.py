@@ -4,7 +4,11 @@ from flask_login import UserMixin
 from hashlib import md5
 from datetime import datetime
 
+
 class User(db.Model, UserMixin):
+    """
+    Class which stores all user information
+    """
     id = db.Column(db.Integer, primary_key=True)
     first_name = db.Column(db.String(64))
     last_name = db.Column(db.String(64))
@@ -13,7 +17,7 @@ class User(db.Model, UserMixin):
     password_hash = db.Column(db.String(128))
     joined = db.Column(db.DateTime, default=datetime.utcnow)
     last_seen = db.Column(db.DateTime, default=datetime.utcnow)
-    
+
     country = db.Column(db.String(40))
     city = db.Column(db.String(40))
     date_of_birth = db.Column(db.DateTime, default=datetime.utcnow)
@@ -28,16 +32,36 @@ class User(db.Model, UserMixin):
         return '<User %s>' % (self.username)
 
     def set_password(self, password):
+        """
+        Generates passwords for user
+        :param password:
+        :return:
+        """
         self.password_hash = generate_password_hash(password)
 
     def check_password(self, password):
+        """
+        Checks if password matches user input
+        :param password:
+        :return:
+        """
         return check_password_hash(self.password_hash, password)
-    
+
     def avatar(self, size):
+        """
+        Creates user avatar
+        :param size:
+        :return:
+        """
         digest = md5(self.email.lower().encode('utf-8')).hexdigest()
-        return 'https://www.gravatar.com/avatar/%s?d=identicon&s=%s' % (digest, size)
+        return 'https://www.gravatar.com/avatar/%s?d=identicon&s=%s' \
+               % (digest, size)
+
 
 class InputRecipe(db.Model):
+    """
+    Stores user input recipe
+    """
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
     title = db.Column(db.String(64))
@@ -47,8 +71,7 @@ class InputRecipe(db.Model):
     def __repr__(self):
         return '<Recipe %s>' % (self.title)
 
+
 @login.user_loader
 def load_user(id):
     return User.query.get(int(id))
-
-
