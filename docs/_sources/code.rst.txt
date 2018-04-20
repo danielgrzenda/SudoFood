@@ -1,0 +1,17 @@
+Auto Generated Documentation
+============================
+.. automodule:: dataloading
+		:members:
+		:undoc-members:
+
+.. automodule:: forms
+		:members:
+		:undoc-members:
+
+.. automodule:: recommend
+		:members:
+		:undoc-members:
+
+.. automodule:: yummly_api
+		:members:
+		:undoc-members:

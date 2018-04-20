@@ -1,0 +1,326 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Auto Generated Documentation &#8212; SudoFood 0.1 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="How to Launch SudoFood" href="tutorial.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-dataloading">
+<span id="auto-generated-documentation"></span><h1>Auto Generated Documentation<a class="headerlink" href="#module-dataloading" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="dataloading.get_ingredients">
+<code class="descclassname">dataloading.</code><code class="descname">get_ingredients</code><span class="sig-paren">(</span><em>bucket_name</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/dataloading.html#get_ingredients"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#dataloading.get_ingredients" title="Permalink to this definition">¶</a></dt>
+<dd><p>Receives the json files from S3 bucket
+and puts the recipe id and ingredients
+in list</p>
+</dd></dl>
+
+<span class="target" id="module-forms"></span><dl class="class">
+<dt id="forms.EditProfileForm">
+<em class="property">class </em><code class="descclassname">forms.</code><code class="descname">EditProfileForm</code><span class="sig-paren">(</span><em>formdata=&lt;object object&gt;</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/forms.html#EditProfileForm"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#forms.EditProfileForm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Allows users to edit personal information and stores new input</p>
+<dl class="attribute">
+<dt id="forms.EditProfileForm.activity_level">
+<code class="descname">activity_level</code><em class="property"> = &lt;UnboundField(SelectField, ('Activity Level',), {'choices': [('S', 'Sedentary'), ('LA', 'Lightly Active'), ('A', 'Active'), ('VA', 'Very Active')]})&gt;</em><a class="headerlink" href="#forms.EditProfileForm.activity_level" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="forms.EditProfileForm.city">
+<code class="descname">city</code><em class="property"> = &lt;UnboundField(StringField, ('City',), {})&gt;</em><a class="headerlink" href="#forms.EditProfileForm.city" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="forms.EditProfileForm.country">
+<code class="descname">country</code><em class="property"> = &lt;UnboundField(StringField, ('Country',), {})&gt;</em><a class="headerlink" href="#forms.EditProfileForm.country" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="forms.EditProfileForm.date_of_birth">
+<code class="descname">date_of_birth</code><em class="property"> = &lt;UnboundField(DateField, ('Date Of Birth',), {})&gt;</em><a class="headerlink" href="#forms.EditProfileForm.date_of_birth" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="forms.EditProfileForm.goal">
+<code class="descname">goal</code><em class="property"> = &lt;UnboundField(SelectField, ('Goals',), {'choices': [('LW', 'Lose Weight'), ('MW', 'Maintain Weight'), ('GW', 'Gain Weight')]})&gt;</em><a class="headerlink" href="#forms.EditProfileForm.goal" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="forms.EditProfileForm.height">
+<code class="descname">height</code><em class="property"> = &lt;UnboundField(IntegerField, ('Height',), {})&gt;</em><a class="headerlink" href="#forms.EditProfileForm.height" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="forms.EditProfileForm.sex">
+<code class="descname">sex</code><em class="property"> = &lt;UnboundField(SelectField, ('Sex',), {'choices': [('M', 'Male'), ('F', 'Female')]})&gt;</em><a class="headerlink" href="#forms.EditProfileForm.sex" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="forms.EditProfileForm.submit">
+<code class="descname">submit</code><em class="property"> = &lt;UnboundField(SubmitField, ('Edit Profile',), {})&gt;</em><a class="headerlink" href="#forms.EditProfileForm.submit" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="forms.EditProfileForm.weight">
+<code class="descname">weight</code><em class="property"> = &lt;UnboundField(IntegerField, ('Weight',), {})&gt;</em><a class="headerlink" href="#forms.EditProfileForm.weight" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="forms.EditProfileForm.workouts_per_week">
+<code class="descname">workouts_per_week</code><em class="property"> = &lt;UnboundField(IntegerField, ('Workouts Per Week',), {})&gt;</em><a class="headerlink" href="#forms.EditProfileForm.workouts_per_week" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="forms.EnterRecipeForm">
+<em class="property">class </em><code class="descclassname">forms.</code><code class="descname">EnterRecipeForm</code><span class="sig-paren">(</span><em>formdata=&lt;object object&gt;</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/forms.html#EnterRecipeForm"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#forms.EnterRecipeForm" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="forms.EnterRecipeForm.ingredients">
+<code class="descname">ingredients</code><em class="property"> = &lt;UnboundField(TextAreaField, ('Ingredients',), {'validators': [&lt;wtforms.validators.Length object&gt;]})&gt;</em><a class="headerlink" href="#forms.EnterRecipeForm.ingredients" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="forms.EnterRecipeForm.servings">
+<code class="descname">servings</code><em class="property"> = &lt;UnboundField(IntegerField, ('Servings',), {'validators': [&lt;wtforms.validators.DataRequired object&gt;]})&gt;</em><a class="headerlink" href="#forms.EnterRecipeForm.servings" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="forms.EnterRecipeForm.submit">
+<code class="descname">submit</code><em class="property"> = &lt;UnboundField(SubmitField, ('Find Healtheir Versions',), {})&gt;</em><a class="headerlink" href="#forms.EnterRecipeForm.submit" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="forms.EnterRecipeForm.title">
+<code class="descname">title</code><em class="property"> = &lt;UnboundField(StringField, ('Title',), {'validators': [&lt;wtforms.validators.DataRequired object&gt;]})&gt;</em><a class="headerlink" href="#forms.EnterRecipeForm.title" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="forms.LoginForm">
+<em class="property">class </em><code class="descclassname">forms.</code><code class="descname">LoginForm</code><span class="sig-paren">(</span><em>formdata=&lt;object object&gt;</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/forms.html#LoginForm"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#forms.LoginForm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Stores login data from user input</p>
+<dl class="attribute">
+<dt id="forms.LoginForm.password">
+<code class="descname">password</code><em class="property"> = &lt;UnboundField(PasswordField, ('Password',), {'validators': [&lt;wtforms.validators.DataRequired object&gt;]})&gt;</em><a class="headerlink" href="#forms.LoginForm.password" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="forms.LoginForm.remember_me">
+<code class="descname">remember_me</code><em class="property"> = &lt;UnboundField(BooleanField, ('Remember Me',), {})&gt;</em><a class="headerlink" href="#forms.LoginForm.remember_me" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="forms.LoginForm.submit">
+<code class="descname">submit</code><em class="property"> = &lt;UnboundField(SubmitField, ('Sign In',), {})&gt;</em><a class="headerlink" href="#forms.LoginForm.submit" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="forms.LoginForm.username">
+<code class="descname">username</code><em class="property"> = &lt;UnboundField(StringField, ('Username',), {'validators': [&lt;wtforms.validators.DataRequired object&gt;]})&gt;</em><a class="headerlink" href="#forms.LoginForm.username" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="forms.RegistrationForm">
+<em class="property">class </em><code class="descclassname">forms.</code><code class="descname">RegistrationForm</code><span class="sig-paren">(</span><em>formdata=&lt;object object&gt;</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/forms.html#RegistrationForm"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#forms.RegistrationForm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Stores registration data from user input</p>
+<dl class="attribute">
+<dt id="forms.RegistrationForm.email">
+<code class="descname">email</code><em class="property"> = &lt;UnboundField(StringField, ('Email',), {'validators': [&lt;wtforms.validators.DataRequired object&gt;, &lt;wtforms.validators.Email object&gt;]})&gt;</em><a class="headerlink" href="#forms.RegistrationForm.email" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="forms.RegistrationForm.first_name">
+<code class="descname">first_name</code><em class="property"> = &lt;UnboundField(StringField, ('First Name',), {'validators': [&lt;wtforms.validators.DataRequired object&gt;]})&gt;</em><a class="headerlink" href="#forms.RegistrationForm.first_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="forms.RegistrationForm.last_name">
+<code class="descname">last_name</code><em class="property"> = &lt;UnboundField(StringField, ('Last Name',), {'validators': [&lt;wtforms.validators.DataRequired object&gt;]})&gt;</em><a class="headerlink" href="#forms.RegistrationForm.last_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="forms.RegistrationForm.password">
+<code class="descname">password</code><em class="property"> = &lt;UnboundField(PasswordField, ('Password',), {'validators': [&lt;wtforms.validators.DataRequired object&gt;]})&gt;</em><a class="headerlink" href="#forms.RegistrationForm.password" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="forms.RegistrationForm.password2">
+<code class="descname">password2</code><em class="property"> = &lt;UnboundField(PasswordField, ('Repeat Password',), {'validators': [&lt;wtforms.validators.DataRequired object&gt;, &lt;wtforms.validators.EqualTo object&gt;]})&gt;</em><a class="headerlink" href="#forms.RegistrationForm.password2" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="forms.RegistrationForm.submit">
+<code class="descname">submit</code><em class="property"> = &lt;UnboundField(SubmitField, ('Register',), {})&gt;</em><a class="headerlink" href="#forms.RegistrationForm.submit" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="forms.RegistrationForm.username">
+<code class="descname">username</code><em class="property"> = &lt;UnboundField(StringField, ('Username',), {'validators': [&lt;wtforms.validators.DataRequired object&gt;]})&gt;</em><a class="headerlink" href="#forms.RegistrationForm.username" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="forms.RegistrationForm.validate_email">
+<code class="descname">validate_email</code><span class="sig-paren">(</span><em>email</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/forms.html#RegistrationForm.validate_email"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#forms.RegistrationForm.validate_email" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="forms.RegistrationForm.validate_username">
+<code class="descname">validate_username</code><span class="sig-paren">(</span><em>username</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/forms.html#RegistrationForm.validate_username"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#forms.RegistrationForm.validate_username" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<span class="target" id="module-recommend"></span><dl class="function">
+<dt id="recommend.closest_recipe_name">
+<code class="descclassname">recommend.</code><code class="descname">closest_recipe_name</code><span class="sig-paren">(</span><em>recipe_name</em>, <em>df</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/recommend.html#closest_recipe_name"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#recommend.closest_recipe_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Takes the recipe name as input and finds the
+closest receipe in our database on the basis
+of name</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="recommend.cosine_sim">
+<code class="descclassname">recommend.</code><code class="descname">cosine_sim</code><span class="sig-paren">(</span><em>text1</em>, <em>text2</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/recommend.html#cosine_sim"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#recommend.cosine_sim" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="recommend.cosine_sim_recipe">
+<code class="descclassname">recommend.</code><code class="descname">cosine_sim_recipe</code><span class="sig-paren">(</span><em>text1</em>, <em>text2</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/recommend.html#cosine_sim_recipe"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#recommend.cosine_sim_recipe" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="recommend.recommend_recipes">
+<code class="descclassname">recommend.</code><code class="descname">recommend_recipes</code><span class="sig-paren">(</span><em>name</em>, <em>df</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/recommend.html#recommend_recipes"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#recommend.recommend_recipes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Takes the closest recipe name found in our database
+and recommends the top ten closest recipe names on basis
+of ingredients</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="recommend.tokeniser">
+<code class="descclassname">recommend.</code><code class="descname">tokeniser</code><span class="sig-paren">(</span><em>text</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/recommend.html#tokeniser"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#recommend.tokeniser" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<span class="target" id="module-yummly_api"></span><dl class="function">
+<dt id="yummly_api.build_list">
+<code class="descclassname">yummly_api.</code><code class="descname">build_list</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/yummly_api.html#build_list"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yummly_api.build_list" title="Permalink to this definition">¶</a></dt>
+<dd><p>For every 10 recipes pulled, this function dumps said recipes into a
+single json file and uploads it to the S3 bucket.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="yummly_api.get_one_recipe">
+<code class="descclassname">yummly_api.</code><code class="descname">get_one_recipe</code><span class="sig-paren">(</span><em>recipe_id</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/yummly_api.html#get_one_recipe"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yummly_api.get_one_recipe" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the corresponding recipe for each recipe id</p>
+<dl class="docutils">
+<dt>recipe_id <span class="classifier-delimiter">:</span> <span class="classifier">str</span></dt>
+<dd>Recipe id that was pulled from search recipe</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="yummly_api.recipe_search">
+<code class="descclassname">yummly_api.</code><code class="descname">recipe_search</code><span class="sig-paren">(</span><em>search_params=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/yummly_api.html#recipe_search"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#yummly_api.recipe_search" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns recipe ids from YummlyAPI based on the given search parameters.</p>
+<dl class="docutils">
+<dt>search_params <span class="classifier-delimiter">:</span> <span class="classifier">dict</span></dt>
+<dd>Any parameters that the user wishes to search by</dd>
+</dl>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">SudoFood</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction to SudoFood</a></li>
+<li class="toctree-l1"><a class="reference internal" href="authors.html">The SudoFood Team</a></li>
+<li class="toctree-l1"><a class="reference internal" href="requirements.html">Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial.html">How to Launch SudoFood</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Auto Generated Documentation</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="tutorial.html" title="previous chapter">How to Launch SudoFood</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2018, Mathew Shaw.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.7.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="_sources/code.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
