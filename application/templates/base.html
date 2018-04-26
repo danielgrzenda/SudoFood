@@ -5,7 +5,7 @@
         <meta http-equiv="x-ua-compatible" content="ie=edge">
 
         <!-- Bootstrap CSS -->
-        <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="{{ bootstrap_find_resource('css/bootstrap.css',cdn='bootstrap') }}">
         {% if title %}
         <title>{{ title }} - SudoFood</title>
         {% else %}
@@ -13,27 +13,7 @@
         {% endif %}
     </head>
     <body>
-        <nav class="navbar navbar-dark navbar-expand-sm bg-primary fixed-top">
-            <div class="container">
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#Navbar">
-                    <span class="navbar-toggle-icon"></span>
-                </button>
-                <a class="navbar-brand mr-auto" href="#">SudoFood</a>
-                <div class="collapse navbar-collapse" id="Navbar">
-                    <ul class="navbar-nav mr-auto">
-                        <li class="nav-item"><a class="nav-link" href="{{ url_for('index') }}">Home</a></li>
-                        {% if current_user.is_authenticated %}
-                        <li class="nav-item"><a class="nav-link" href="{{ url_for('user', username=current_user.username) }}">Profile</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{{ url_for('enter_recipe') }}">Enter Recipes</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{{ url_for('your_recipes') }}">Your Recipes</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{{ url_for('logout') }}">Logout</a></li>
-                        {% else %}
-                        <li class="nav-item"><a class="nav-link" href="{{ url_for('login') }}">Login</a></li>
-                        {% endif %}
-                    </ul>
-                </div>
-            </div>
-        </nav>
+        
         <hr>
         {% with messages = get_flashed_messages() %}
             {% if messages %}
@@ -46,8 +26,8 @@
         {% endwith %}
         {% block content %}{% endblock %}
         <!-- jQuery first, then Popper.js, then Bootstrap JS. -->
-        <script src="node_modules/jquery/dist/jquery.slim.min.js"></script>
-        <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
-        <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+        <!-- <script src="node_modules/jquery/dist/jquery.slim.min.js"></script> -->
+        <!-- <script src="node_modules/popper.js/dist/umd/popper.min.js"></script> -->
+        <script src="{{ bootstrap_find_resource('js/bootstrap.min.js',cdn='bootstrap') }}"></script> -->
     </body>
 </html>
