@@ -9,6 +9,9 @@ from application.models import User
 class LoginForm(FlaskForm):
     """
     Stores login data from user input
+
+    Parameters:
+        Input from online website flask form
     """
     username = StringField('Username', validators=[DataRequired()])
     password = PasswordField('Password', validators=[DataRequired()])
@@ -19,6 +22,9 @@ class LoginForm(FlaskForm):
 class RegistrationForm(FlaskForm):
     """
     Stores registration data from user input
+
+    Parameters:
+        Input from online website flask form
     """
     first_name = StringField('First Name', validators=[DataRequired()])
     last_name = StringField('Last Name', validators=[DataRequired()])
@@ -44,6 +50,9 @@ class RegistrationForm(FlaskForm):
 class EditProfileForm(FlaskForm):
     """
     Allows users to edit personal information and stores new input
+
+    Parameters:
+        Input from online website flask form
     """
     country = StringField('Country')
     city = StringField('City')
@@ -65,6 +74,12 @@ class EditProfileForm(FlaskForm):
 
 
 class EnterRecipeForm(FlaskForm):
+    """
+    Allows user to input a recipe for their recipe search.
+
+    Parameters:
+        Input from online website flask form
+    """
     title = StringField('Title', validators=[DataRequired()])
     servings = IntegerField('Servings', validators=[DataRequired()])
     ingredients = TextAreaField('Ingredients',

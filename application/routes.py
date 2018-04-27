@@ -19,8 +19,12 @@ def index():
 def user(username):
     """
     Route to users page
-    :param username:
-    :return:
+
+    Parameters:
+        username (str obj)
+
+    Return:
+        url for eithr the user or unavailable profile
     """
     user = User.query.filter_by(username=username).first_or_404()
     if current_user.username == user.username:
@@ -38,7 +42,10 @@ def profile_unavailable():
 def login():
     """
     Route to login page
-    :return:
+
+    Return:
+        If the user's information is saved, sends them to their profile
+        If not the user goes to a loginform asking for information to log in
     """
     if current_user.is_authenticated:
         return redirect(url_for('user', username=current_user.username))
@@ -62,7 +69,9 @@ def login():
 def your_recipes():
     """
     Route to your_recipes page
-    :return:
+
+    Return:
+        the user's saved recipes webpage
     """
     recipes = InputRecipe.query.filter_by(user_id=current_user.id)
     return render_template('your_recipes.html', title='Your Recipes',
@@ -74,7 +83,9 @@ def your_recipes():
 def logout():
     """
     Logs out user
-    :return:
+
+    Return:
+        sends you to index page after logging them out
     """
     logout_user()
     return redirect(url_for('index'))
@@ -84,7 +95,10 @@ def logout():
 def register():
     """
     Checks if username/email
-    :return:
+
+    Return:
+        sends them to register page and has them register then sends them to
+        the log in page.
     """
     if current_user.is_authenticated:
         return redirect(url_for('user', username=current_user.username))
@@ -102,6 +116,12 @@ def register():
 @app.route('/edit_profile', methods=['GET', 'POST'])
 @login_required
 def edit_profile():
+    """
+    Fills out a form to change your different settings of your profile
+
+    Return:
+        Returns them to edit profile page again after filling out info
+    """
     form = EditProfileForm()
     if form.validate_on_submit():
         current_user.country = form.country.data
@@ -133,6 +153,12 @@ def edit_profile():
 @app.route('/enter_recipe', methods=["GET", "POST"])
 @login_required
 def enter_recipe():
+    """
+    Enter your recipe you want to search
+
+    Return:
+         Enter recipe html page where you input info for a recipe form
+    """
     form = EnterRecipeForm()
     if form.validate_on_submit():
         recipe = InputRecipe(title=form.title.data,
@@ -149,6 +175,9 @@ def enter_recipe():
 
 @app.before_request
 def before_request():
+    """
+    Right before a request is made, checks to see if the user is logged in.
+    """
     if current_user.is_authenticated:
         current_user.last_seen = datetime.utcnow()
         db.session.commit()
