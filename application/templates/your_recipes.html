@@ -1,12 +1,45 @@
 {% extends "base.html" %}
+
+{%- block styles %}
+<link href="{{bootstrap_find_resource('css/bootstrap.css', cdn='bootstrap')}}" rel="stylesheet">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>SudoFood - Your Recipes</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{{url_for('static', filename='vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet')}}">
+
+    <!-- Custom styles for this template -->
+    <link href="{{url_for('static', filename='css/modern-business.css')}}" rel="stylesheet">
+{%- endblock styles %}
+
 {% include "header.html" %}
 
-{% block content %}
+<!----Profile1---->
 
+{% block content %}
+    <div class="container">
+        <h1 class="mt-4 mb-3">Your Recipes
+      </h1>
 {% for recipe in recipes %}
-<p><strong>{{ recipe.title }} </strong></p>
-<p>Servings: {{ recipe.servings }} </p>
-<p>Ingredients: {{ recipe.ingredients }} </p>
+      <div class="row">
+        <div class="col-md-7">
+          <a href="#">
+            <img class="img-fluid rounded mb-3 mb-md-0" src="http://placehold.it/700x300" alt="">
+          </a>
+        </div>
+        <div class="col-md-5">
+          <h3>{{ recipe.title }}</h3>
+            <p>Servings: {{ recipe.servings }}</p>
+          <p> Ingredients: {{ recipe.ingredients }} </p>
+        </div>
+      </div>
+      <!-- /.row -->
+
+      <hr>
 {% endfor %}
 
 {% endblock %}
