@@ -14,6 +14,7 @@ import sys
 global tfidf
 global tfidf1
 
+
 first_arg = sys.argv[1]
 
 recipe_id = pickle.load(open("recipe_id.pkl", "rb"))
@@ -21,6 +22,7 @@ ingredients = pickle.load(open("ingredients.pkl", "rb"))
 
 words = [x.split(' ') for item in ingredients for x in item]
 words = [x for item in words for x in item]
+
 
 ENGLISH_STOP_WORDS = frozenset([
     "a", "about", "above", "across", "after", "afterwards", "again", "against",
