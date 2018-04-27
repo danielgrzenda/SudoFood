@@ -34,24 +34,33 @@ class User(db.Model, UserMixin):
     def set_password(self, password):
         """
         Generates passwords for user
-        :param password:
-        :return:
+
+        Parameter:
+            password (str obj)
         """
         self.password_hash = generate_password_hash(password)
 
     def check_password(self, password):
         """
         Checks if password matches user input
-        :param password:
-        :return:
+
+        Parameter:
+            password (str obj)
+
+        Return:
+            Boolean to see if password hashed is the correct hashed password
         """
         return check_password_hash(self.password_hash, password)
 
     def avatar(self, size):
         """
         Creates user avatar
-        :param size:
-        :return:
+
+        Parameter:
+            size (int obj dev set)
+
+        Return:
+            returns a hashed image based off a unique email
         """
         digest = md5(self.email.lower().encode('utf-8')).hexdigest()
         return 'https://www.gravatar.com/avatar/%s?d=identicon&s=%s' \
@@ -61,6 +70,9 @@ class User(db.Model, UserMixin):
 class InputRecipe(db.Model):
     """
     Stores user input recipe
+
+    Return:
+        Recipe saved into database
     """
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
@@ -74,4 +86,13 @@ class InputRecipe(db.Model):
 
 @login.user_loader
 def load_user(id):
+    """
+    Loads user querying the database
+
+    Parameter:
+        id (str obj)
+
+    Return:
+        boolean whether the user is in the database.
+    """
     return User.query.get(int(id))

@@ -70,6 +70,16 @@ ENGLISH_STOP_WORDS = frozenset([
 
 
 def tokeniser(text):
+    """
+    Compiles a text string then transforms it into a list of words removing
+    words that are stop words of length < 2 returning the list of words.
+
+    Parameters:
+        text (string obj)
+
+    Return:
+        words (list)
+    """
     regex = re.compile('[' + re.escape(string.punctuation) + '0-9\\r\\t\\n]')
     text = regex.sub(" ", text.lower())
     words = text.split(" ")
@@ -83,6 +93,17 @@ tfidf = TfidfVectorizer(tokenizer=tokeniser, stop_words=ENGLISH_STOP_WORDS).\
 
 
 def cosine_sim(text1, text2):
+    """
+    Calculates the cosine similarity for two text strings after vectorizing
+    them
+
+    Parameters:
+        text1 (string obj)
+        text2 (string obj)
+
+    Return:
+         cosine similarity between the two text values.
+    """
     tfidf_score = TfidfVectorizer().fit_transform([text1, text2])
     return ((tfidf_score * tfidf_score.T).A)[0, 1]
 
@@ -101,6 +122,16 @@ tfidf1 = TfidfVectorizer(tokenizer=tokeniser, stop_words=ENGLISH_STOP_WORDS).\
 
 
 def cosine_sim_recipe(text1, text2):
+    """Calculates the cosine similarity for two text strings after vectorizing
+    them
+
+    Parameters:
+        text1 (string obj)
+        text2 (string obj)
+
+    Return:
+        cosine similarity between the two text values.
+    """
     z = tfidf1.fit_transform([text1, text2])
     return ((z * z.T).A)[0, 1]
 
@@ -110,6 +141,13 @@ def closest_recipe_name(recipe_name, df):
     Takes the recipe name as input and finds the
     closest receipe in our database on the basis
     of name
+
+    Parameters:
+        recipe_name (string object)
+        df (pandas dataframe obj)
+
+    Return:
+        a the closest recipe by name
     """
     cos = []
     names_list = df.name
@@ -125,6 +163,13 @@ def recommend_recipes(name, df):
     Takes the closest recipe name found in our database
     and recommends the top ten closest recipe names on basis
     of ingredients
+
+    Parameters:
+        name (str obj) original recipe
+        df (pandas dataframe)
+
+    Return:
+        A list of 10 recipes closest to the original
     """
     recipe_name = closest_recipe_name(name, df)
     cos = []

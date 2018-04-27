@@ -14,6 +14,12 @@ def get_ingredients(bucket_name):
     Receives the json files from S3 bucket
     and puts the recipe id and ingredients
     in list
+
+    Parameters:
+        bucket_name (str obj)
+
+    Return:
+        A tuple of the recipe id and ingredients from the bucket
     """
     s3 = boto3.resource('s3')
     bucket = s3.Bucket(bucket_name)
