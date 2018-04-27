@@ -28,24 +28,27 @@
         </ol>
         <div class="carousel-inner" role="listbox">
           <!-- Slide One - Set the background image for this slide in the line below -->
-          <div class="carousel-item active" style="background-image: url_for('static', 'images/placeholder.jpg') ">
+          <div class="carousel-item active">
+              <img class="d-block img-fluid" src="{{ url_for('static',filename='lettuce.jpg') }}" alt="First slide">
             <div class="carousel-caption d-none d-md-block">
               <h3>Discover New Recipes</h3>
               <p>Tell is what you like and we will give you something new to try.</p>
             </div>
           </div>
           <!-- Slide Two - Set the background image for this slide in the line below -->
-          <div class="carousel-item" style="background-image: url('http://placehold.it/1900x1080')">
+          <div class="carousel-item" >
+              <img class="d-block img-fluid" src="{{ url_for('static',filename='berries.png') }}" alt="Second slide">
             <div class="carousel-caption d-none d-md-block">
-              <h3>Second Slide</h3>
-              <p>This is a description for the second slide.</p>
+              <h3>Enter Your Own Recipes</h3>
+              <p>We can create better recommendations if you give us something unique.</p>
             </div>
           </div>
           <!-- Slide Three - Set the background image for this slide in the line below -->
-          <div class="carousel-item" style="background-image: url('http://placehold.it/1900x1080')">
+          <div class="carousel-item" >
+              <img class="d-block img-fluid" src="{{ url_for('static',filename='bacon.jpg') }}" alt="Second slide">
             <div class="carousel-caption d-none d-md-block">
-              <h3>Third Slide</h3>
-              <p>This is a description for the third slide.</p>
+              <h3>Eat Healthier</h3>
+              <p>Eat what you love without worrying!</p>
             </div>
           </div>
         </div>
@@ -64,9 +67,7 @@
     <section class="py-5">
       <div class="container">
         <h1>What is SudoFood?</h1>
-        <p> Helping you discover original recipes in real time with the touch of a button. That is how SuperUsers do food!
-          <code>half-slider.css</code>
-          file.</p>
+        <p> Helping you discover original recipes in real time with the touch of a button. That is how SuperUsers do food!</p>
       </div>
     </section>
 
@@ -81,6 +82,6 @@
 
 {%- block scripts %}
 <!-- Bootstrap core JavaScript -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="{{url_for('static', filename='vendor/jquery/jquery.min.js')}}"></script>
+    <script src="{{url_for('static', filename='vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 {%- endblock scripts %}

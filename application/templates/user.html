@@ -43,7 +43,7 @@ link href="{{bootstrap_find_resource('css/bootstrap.css', cdn='bootstrap')}}" re
               <li>Height: {{ user.height }}</li>
             <li>Weight: {{ user.weight }}</li>
               <li>Goal: {{ user.goal }}</li>
-              <li>Activity Level: {{ user.activity_level }}}</li>
+              <li>Activity Level: {{ user.activity_level }}</li>
               <li>Workout Per Week: {{ user.workouts_per_week }}</li>
           </ul>
                       {% if user == current_user %}
@@ -78,6 +78,6 @@ link href="{{bootstrap_find_resource('css/bootstrap.css', cdn='bootstrap')}}" re
 
         {%- block scripts %}
 <!-- Bootstrap core JavaScript -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="{{url_for('static', filename='vendor/jquery/jquery.min.js')}}"></script>
+    <script src="{{url_for('static', filename='vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 {%- endblock scripts %}
