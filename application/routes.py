@@ -83,7 +83,7 @@ def logout():
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     """
-    CHecks if username/email
+    Checks if username/email
     :return:
     """
     if current_user.is_authenticated:
