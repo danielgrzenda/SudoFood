@@ -6,6 +6,12 @@ from flask_login import current_user, login_user, logout_user, login_required
 from application.models import User, InputRecipe
 from werkzeug.urls import url_parse
 from datetime import datetime
+import re
+import string
+import gensim
+
+from app import sims_rn, sims, servings, ingredients, nutrients, recipe_id,
+ 	ENGLISH_STOP_WORDS
 
 
 @app.route('/')
@@ -167,11 +173,52 @@ def enter_recipe():
                              user_id=current_user.id)
         db.session.add(recipe)
         db.session.commit()
+        
+        ten_similar = recommend(recipe.title)
+        
         flash('Your recipe was added')
         return redirect(url_for('enter_recipe'))
     return render_template("enter_recipe.html", title="Enter Recipe",
                            form=form)
 
+
+def tokeniser(text):
+    regex = re.compile('[' + re.escape(string.punctuation) + '0-9\\r\\t\\n]')
+    text = regex.sub(" ", text.lower())
+    words = text.split(" ")
+    words = [w for w in words if not len(w) < 2]
+    words = [w for w in words if w not in ENGLISH_STOP_WORDS]
+    return words
+
+
+def similarity_object():
+    new_rec = [' '.join(x.split('-')[:-1]) for x in recipe_id]
+    gen_docs = [[w.lower() for w in tokeniser(text)] for text in new_rec]
+    dictionary = gensim.corpora.Dictionary(gen_docs)
+    corpus = [dictionary.doc2bow(gen_doc) for gen_doc in gen_docs]
+    tf_idf = gensim.models.TfidfModel(corpus)
+    #sims = gensim.similarities.Similarity('/Users/nimesh/Documents/Spring2/app',tf_idf[corpus],num_features=len(dictionary))
+    return dictionary,tf_idf
+
+
+def recommend(title):
+    dictionary,tf_idf = similarity_object(recipe_id)
+    query_doc = [w.lower() for w in tokeniser(title)]
+    query_doc_bow = dictionary.doc2bow(query_doc)
+    query_doc_tf_idf = tf_idf[query_doc_bow]
+    sorted_sims = sims_rn[query_doc_tf_idf].argsort()[-5:][::-1]
+    rec_recipe = [recipe_id[x] for x in sorted_sims if len(nutrients[x]) !=0]
+    new_ing  = [ingredients[x] for x in sorted_simsif len(nutrients[x]) !=0]
+    new_nutrition = [nutrients[x] for x in sorted_sims if len(nutrients[x])!=0]
+    #print(new_ing)
+    new_servings = [servings[x] for x in sorted_sims if len(nutrients[x])!=0]
+    
+    z = sorted(range(len([nutrients[x] for x in sorted_sims if len(nutrients[x]) !=0])),
+           key=lambda x:[nutrients[y] for y in sorted_sims if len(nutrients[y]) !=0][x][0][2])
+    
+    rec_ing = [new_ing[x] for x in z]
+    return [(' '.join(rec_recipe[x].split('-')[:-1]),new_nutrition[x][0][2], 
+            new_servings[x], new_ing[x]) for x in z]
 
 @app.before_request
 def before_request():
@@ -181,3 +228,6 @@ def before_request():
     if current_user.is_authenticated:
         current_user.last_seen = datetime.utcnow()
         db.session.commit()
+
+
+
