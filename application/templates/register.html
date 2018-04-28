@@ -1,5 +1,10 @@
 {% extends "base.html" %}
 
+{% block head %}
+	{{ super() }}
+	{% include 'google_analytics.html' %}
+{% endblock %}
+
 {%- block styles %}
 <!-- Bootstrap -->
     <link href="{{bootstrap_find_resource('css/bootstrap.css', cdn='bootstrap')}}" rel="stylesheet">
