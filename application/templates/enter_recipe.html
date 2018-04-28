@@ -75,7 +75,22 @@
         </div>
 
       </div>
-      <!-- /.row -->
+      <div>
+        {% if similar == None %}
+        {% else %}
+          {% for item in similar %}
+          <h3> {{ item[0] }} </h3>
+          <p>Calories: {{ item[1]*item[2] }}</p>
+          <p>Servings: {{ item[2] }}
+          <p>Ingredients: </p>
+          <ul> 
+          {% for ing in item[3] %}
+          <li> {{ ing }} </li>
+          {% endfor %}
+          </ul>
+          {% endfor %}
+        {% endif %}
+      </div>
 
     </div>
 {% endblock %}
