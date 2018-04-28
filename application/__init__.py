@@ -4,6 +4,10 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from flask_login import LoginManager
 from flask_bootstrap import Bootstrap
+import gensim
+import pickle
+import re
+import string
 
 app = Flask(__name__)
 app.config.from_object(Config)
@@ -12,6 +16,9 @@ migrate = Migrate(app, db)
 login = LoginManager(app)
 login.login_view = 'login'
 bootstrap = Bootstrap(app)
+sims_rn = gensim.similarities.Similarity.load('similarity_recipe_name', mmap=None)
+sims = gensim.similarities.Similarity.load('similarity', mmap=None)
+
 
 with open('../MachineLearning/picklefiles/recipe_id.pkl','rb') as f:
     recipe_id = pickle.load(f)
