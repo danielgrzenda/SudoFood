@@ -175,10 +175,11 @@ def enter_recipe():
         
         ten_similar = recommend(recipe.title)
         
-        flash('Your recipe was added')
-        return redirect(url_for('enter_recipe'))
+        return render_template("enter_recipe.html",title="Recommended",
+                form=form, similar=ten_similar)
+        
     return render_template("enter_recipe.html", title="Enter Recipe",
-                           form=form)
+                           form=form, similar=None)
 
 
 def tokeniser(text):
