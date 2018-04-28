@@ -10,8 +10,7 @@ import re
 import string
 import gensim
 
-from app import sims_rn, sims, servings, ingredients, nutrients, recipe_id,
- 	ENGLISH_STOP_WORDS
+from application import sims_rn, sims, servings, ingredients, nutrients, recipe_id, ENGLISH_STOP_WORDS
 
 
 @app.route('/')
@@ -197,26 +196,29 @@ def similarity_object():
     dictionary = gensim.corpora.Dictionary(gen_docs)
     corpus = [dictionary.doc2bow(gen_doc) for gen_doc in gen_docs]
     tf_idf = gensim.models.TfidfModel(corpus)
-    #sims = gensim.similarities.Similarity('/Users/nimesh/Documents/Spring2/app',tf_idf[corpus],num_features=len(dictionary))
+    # sim_generator = gensim.similarities.Similarity('MachineLearning/picklefiles/',tf_idf[corpus],num_features=len(dictionary))
+    # sim_generator.save('similarity_recipe_name1')
+    # sims_rn = gensim.similarities.Similarity.load('similarity_recipe_name1', mmap=None)
     return dictionary,tf_idf
 
 
 def recommend(title):
-    dictionary,tf_idf = similarity_object(recipe_id)
+    dictionary,tf_idf = similarity_object()
     query_doc = [w.lower() for w in tokeniser(title)]
     query_doc_bow = dictionary.doc2bow(query_doc)
     query_doc_tf_idf = tf_idf[query_doc_bow]
     sorted_sims = sims_rn[query_doc_tf_idf].argsort()[-5:][::-1]
     rec_recipe = [recipe_id[x] for x in sorted_sims if len(nutrients[x]) !=0]
-    new_ing  = [ingredients[x] for x in sorted_simsif len(nutrients[x]) !=0]
+    new_ing  = [ingredients[x] for x in sorted_sims if len(nutrients[x]) !=0]
     new_nutrition = [nutrients[x] for x in sorted_sims if len(nutrients[x])!=0]
-    #print(new_ing)
     new_servings = [servings[x] for x in sorted_sims if len(nutrients[x])!=0]
     
     z = sorted(range(len([nutrients[x] for x in sorted_sims if len(nutrients[x]) !=0])),
            key=lambda x:[nutrients[y] for y in sorted_sims if len(nutrients[y]) !=0][x][0][2])
     
     rec_ing = [new_ing[x] for x in z]
+    print([(' '.join(rec_recipe[x].split('-')[:-1]),new_nutrition[x][0][2], 
+            new_servings[x], new_ing[x]) for x in z])
     return [(' '.join(rec_recipe[x].split('-')[:-1]),new_nutrition[x][0][2], 
             new_servings[x], new_ing[x]) for x in z]
 

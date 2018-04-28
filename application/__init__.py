@@ -15,7 +15,7 @@ login = LoginManager(app)
 login.login_view = 'login'
 bootstrap = Bootstrap(app)
 
-sims_rn = gensim.similarities.Similarity.load('MachineLearning/picklefiles/similarity_recipe_name', mmap=None)
+sims_rn = gensim.similarities.Similarity.load('MachineLearning/picklefiles/similarity_recipe_name1', mmap=None)
 sims = gensim.similarities.Similarity.load('MachineLearning/picklefiles/similarity', mmap=None)
 
 
