@@ -88,7 +88,7 @@
 						{{ form.email.label }}
 					</span>
 					<div class="wrap-input100 validate-input m-b-12" data-validate = "Feild is required">
-						{{ form.email(size=64) }}
+						{{ form.email(size=32) }}
 						<span class="focus-input100"></span>
 					</div>
 					{% for error in form.email.errors %}
@@ -127,15 +127,22 @@
 					</div>
 
 					<div class="container-login100-form-btn">
-						<button class="login100-form-btn">
 							{{ form.submit()}}
-						</button>
 					</div>
 				</form>
 			</div>
 		</div>
 	</div>
+
+<footer class="py-5 bg-dark">
+      <div class="container">
+        <p class="m-0 text-center text-white">Copyright &copy; SudoFood 2018</p>
+      </div>
+      <!-- /.container -->
+    </footer>
 {% endblock %}
+
+<div id="dropDownSelect1"></div>
 
 {%- block scripts %}
 <script src="{{bootstrap_find_resource('jquery.js', cdn='jquery')}}"></script>

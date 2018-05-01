@@ -1,7 +1,7 @@
 {% extends "bootstrap/base.html" %}
 
 {% block head %}
-    {{super()}}
+    {{ super() }}
     {% include 'google_analytics.html' %}
 {% endblock %}
 
@@ -37,78 +37,149 @@
 
 {% include "header.html" %}
 
-<----LOGIN----->
-
 {% block content %}
-    <h1>Edit Profile</h1>
-    <form action="" method="post">
-        {{ form.hidden_tag() }}
-        <p>
-            {{ form.country.label }} <br>
-            {{ form.country(size=20) }} <br>
-            {% for error in form.country.errors %}
-            <span style="color:red;">[{{ error }}]</span>
-            {% endfor %}
-        </p>
-        <p>
-            {{ form.city.label }} <br>
-            {{ form.city(size=20) }} <br>
-            {% for error in form.city.errors %}
-            <span style="color:red;">[{{ error }}]</span>
-            {% endfor %}
-        </p>
-        <p>
-            {{ form.date_of_birth.label }} <br>
-            {{ form.date_of_birth }} <br>
-            {% for error in form.date_of_birth.errors %}
-            <span style="color:red;">[{{ error }}]</span>
-            {% endfor %}
-        </p>
-        <p>
-            {{ form.sex.label }} <br>
-            {{ form.sex }} <br>
-            {% for error in form.sex.errors %}
-            <span style="color:red;">[{{ error }}]</span>
-            {% endfor %}
-        </p>
+<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100 p-l-85 p-r-85 p-t-55 p-b-55">
+				<form class="login100-form validate-form flex-sb flex-w">
+					{{ form.hidden_tag() }}
 
-        <p>
-            {{ form.weight.label }} <br>
-            {{ form.weight }} <br>
-            {% for error in form.weight.errors %}
-            <span style="color:red;">[{{ error }}]</span>
-            {% endfor %}
-        </p>
-        <p>
-            {{ form.height.label }} <br>
-            {{ form.height }} <br>
-            {% for error in form.height.errors %}
-            <span style="color:red;">[{{ error }}]</span>
-            {% endfor %}
-        </p>
-        <p>
-            {{ form.workouts_per_week.label }} <br>
-            {{ form.workouts_per_week }} <br>
-            {% for error in form.workouts_per_week.errors %}
-            <span style="color:red;">[{{ error }}]</span>
-            {% endfor %}
-        </p>
-        <p>
-            {{ form.goal.label }} <br>
-            {{ form.goal }} <br>
-            {% for error in form.goal.errors %}
-            <span style="color:red;">[{{ error }}]</span>
-            {% endfor %}
-        </p>
-        <p>
-            {{ form.activity_level.label }} <br>
-            {{ form.activity_level }} <br>
-            {% for error in form.activity_level.errors %}
-            <span style="color:red;">[{{ error }}]</span>
-            {% endfor %}
-        </p>
-        <p> {{ form.submit() }} </p>
-    </form>
+					<span class="login100-form-title p-b-32">
+						Edit Profile
+					</span>
+
+					<span class="txt1 p-b-11">
+						{{ form.country.label }}
+					</span>
+
+					<div class="wrap-input100 validate-input m-b-12" data-validate = "Field is required">
+						{{ form.country(size=20) }}
+						<span class="focus-input100"></span>
+					</div>
+
+					{% for error in form.country.errors %}
+            			<span style="color:red;">[{{ error }}]</span>
+            		{% endfor %}
+
+					<span class="txt1 p-b-11">
+						{{ form.city.label }}
+					</span>
+
+					<div class="wrap-input100 validate-input m-b-12" data-validate = "Field is required">
+						{{ form.city(size=20) }}
+						<span class="focus-input100"></span>
+					</div>
+
+					{% for error in form.city.errors %}
+            			<span style="color:red;">[{{ error }}]</span>
+            		{% endfor %}
+
+					<span class="txt1 p-b-11">
+						{{ form.date_of_birth.label }}
+					</span>
+
+					<div class="wrap-input100 validate-input m-b-12" data-validate = "Field is required">
+						{{ form.date_of_birth }}
+						<span class="focus-input100"></span>
+					</div>
+
+					{% for error in form.date_of_birth.errors %}
+            			<span style="color:red;">[{{ error }}]</span>
+            		{% endfor %}
+
+					<span class="txt1 p-b-11">
+						{{ form.sex.label }}
+					</span>
+
+					<div class="wrap-input100 validate-input m-b-12" data-validate = "Field is required">
+						{{ form.sex }}
+						<span class="focus-input100"></span>
+					</div>
+
+					{% for error in form.sex.errors %}
+            			<span style="color:red;">[{{ error }}]</span>
+            		{% endfor %}
+
+					<span class="txt1 p-b-11">
+						{{ form.weight.label }}
+					</span>
+
+					<div class="wrap-input100 validate-input m-b-12" data-validate = "Field is required">
+						{{ form.weight }}
+						<span class="focus-input100"></span>
+					</div>
+
+					{% for error in form.weight.errors %}
+           				 <span style="color:red;">[{{ error }}]</span>
+					{% endfor %}
+
+					<span class="txt1 p-b-11">
+						{{ form.height.label }}
+					</span>
+
+					<div class="wrap-input100 validate-input m-b-12" data-validate = "Field is required">
+						{{ form.height }}
+						<span class="focus-input100"></span>
+					</div>
+
+					{% for error in form.height.errors %}
+           				 <span style="color:red;">[{{ error }}]</span>
+            		{% endfor %}
+
+					<span class="txt1 p-b-11">
+						 {{ form.workouts_per_week.label }}
+					</span>
+
+					<div class="wrap-input100 validate-input m-b-12" data-validate = "Field is required">
+						{{ form.workouts_per_week }}
+						<span class="focus-input100"></span>
+					</div>
+
+					{% for error in form.workouts_per_week.errors %}
+            			<span style="color:red;">[{{ error }}]</span>
+            		{% endfor %}
+
+					<span class="txt1 p-b-11">
+						{{ form.goal.label }}
+					</span>
+
+					<div class="wrap-input100 validate-input m-b-12" data-validate = "Password is required">
+						{{ form.goal }}
+						<span class="focus-input100"></span>
+					</div>
+
+					{% for error in form.goal.errors %}
+            			<span style="color:red;">[{{ error }}]</span>
+            		{% endfor %}
+
+					<span class="txt1 p-b-11">
+						{{ form.activity_level.label }}
+					</span>
+					<div class="wrap-input100 validate-input m-b-12" data-validate = "Password is required">
+						{{ form.activity_level }}
+						<span class="focus-input100"></span>
+					</div>
+
+					{% for error in form.activity_level.errors %}
+           				 <span style="color:red;">[{{ error }}]</span>
+            		{% endfor %}
+
+					<div class="flex-sb-m w-full p-b-48">
+						<div class="contact100-form-checkbox">
+							<input class="input-checkbox100" id="ckb1" type="checkbox">
+							<label class="label-checkbox100" for="ckb1">
+								I agree to the Terms & Conditions
+							</label>
+						</div>
+					</div>
+
+					<div class="container-login100-form-btn">
+							{{ form.submit() }}
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
 
     <!-- Footer -->
     <footer class="py-5 bg-dark">
@@ -119,10 +190,12 @@
     </footer>
 {% endblock %}
 
+<div id="dropDownSelect1"></div>
 
 {%- block scripts %}
 <script src="{{bootstrap_find_resource('jquery.js', cdn='jquery')}}"></script>
 <script src="{{bootstrap_find_resource('js/bootstrap.js', cdn='bootstrap')}}"></script>
+
 <!--===============================================================================================-->
 	<script src="{{url_for('static', filename='vendor/jquery/jquery-3.2.1.min.js')}}"></script>
 <!--===============================================================================================-->
