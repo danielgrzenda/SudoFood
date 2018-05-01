@@ -78,11 +78,11 @@
 							{{ form.remember_me() }} {{ form.remember_me.label }}
 						</div>
 					</div>
-					<div class="container-login100-form-btn">
+					<div class="container-login100-form-btn" onsubmit="gtag('event', 'reference-another-page', {'event_category' : 'login', 'event_label' : 'sign-in'});">
 							{{ form.submit() }}
 					</div>
 						<div>
-							<a href="{{ url_for('register') }}" class="txt3">
+							<a href="{{ url_for('register') }}" class="txt3" onclick="gtag('event', 'reference-another-page', {'event_category' : 'button', 'event_label' : 'register-form'});">
 								Click to Register
 							</a>
 						</div>
