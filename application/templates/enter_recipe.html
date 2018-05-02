@@ -25,6 +25,7 @@
 {% include "header.html" %}
 
 {% block content %}
+{% if similar == None %}
 <div class="container">
     <div class="row">
         <div class="col-lg-8 mb-4">
@@ -75,51 +76,133 @@
         </div>
 
       </div>
-      <div>
-        {% if similar == None %}
-        {% else %}
-          {% for item in similar %}
-          <h3> {{ item[0] }} </h3>
-          <p>Calories: {{ item[1]*item[2] }}</p>
-          <p>Servings: {{ item[2] }}
-          <p>Ingredients: </p>
-          <ul> 
-          {% for ing in item[3] %}
-          <li> {{ ing }} </li>
-          {% endfor %}
-          </ul>
-          {% endfor %}
-        {% endif %}
-      </div>
 
     </div>
+{% else %}
+<div class="container">
 
-
-<div id="dropDownSelect1"></div>
-<footer class="py-5 bg-dark">
-      <div class="container">
-        <p class="m-0 text-center text-white">Copyright &copy; SudoFood 2018</p>
-      </div>
-      <!-- /.container -->
-    </footer>
-{% endblock %}
-
-
-{% block content %}
-<h1 class="mt-4 mb-3">Enter Recipe
-        <small>and Suggestions</small>
+      <!-- Page Heading/Breadcrumbs -->
+      <h1 class="mt-4 mb-3"> Recipe Suggestions
       </h1>
+      <div class="container">
+        <div class="row">
+        <div class="col-lg-6 portfolio-item">
+          <div class="card h-75">
+            <div class="card-body">
+          <h4>Edit Your Recipe</h4>
+          <form action="" method="post">
+            {{ form.hidden_tag() }}
+            <div class="control-group form-group">
+              <div class="controls">
+                <label>Recipe Title:</label>
+                <p>
+                  <!--{{ form.title.label }}-->
+                  {{ form.title(size=50) }} <br>
+                  {% for error in form.title.errors %}
+                  <span style="color:red;">[{{ errror }}]</span>
+                  {% endfor %}
+                </p>
+                <p class="help-block"></p>
+              </div>
+            </div>
+            <div class="control-group form-group">
+              <div class="controls">
+                <label>Number of Servings:</label>
+              <p>
+            <!--{{ form.servings.label }} <br>-->
+                {{ form.servings(size=5) }} <br>
+                {% for error in form.servings.errors %}
+                <span style="color:red;">[{{ error }}]</span>
+                {% endfor %}
+              </p>
+              </div>
+            </div>
+            <div class="control-group form-group">
+              <div class="controls">
+                <label>Ingredients:</label>
+              </div>
+              <p>
+               <!--{{ form.ingredients.label }} <br>-->
+                {{ form.ingredients(cols="50",rows="10") | safe }} <br>
+                {% for error in form.ingredients.errors %}
+                <span style="color:red;">[{{ error }}]</span>
+                {% endfor %}
+             </p>
+            </div>
+            <div id="success"></div>
+            <!-- For success/fail messages -->
+            {{ form.submit() }}
+          </form>
+        </div>
+          </div>
+          </div>
 
+        <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
+            {% for item in similar[0:2] %}
+          <div class="card h-50">
+            <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+            <div class="card-body">
+               <h4 class="card-title">
+                <h5>{{ item[0] }}</h5>
+              </h4>
+              <p class="card-text">
+                Calories: {{ item[1]*item[2] }}<br>
+                Servings: {{ item[2] }} <br>
+                  <!--
+                  Ingredients:
+                  {% for ing in item[3] %}
+                    {{ ing }},
+                  {% endfor %}
+                  -->
+                </p>
+            </div>
+            <div class="card-footer">
+              <a href="#" class="btn btn-primary">Full Recipe</a>
+            </div>
+          </div>
+{% endfor %}
+        </div>
+            <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
+            {% for item in similar[2:4] %}
+          <div class="card h-50">
+            <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+            <div class="card-body">
+               <h4 class="card-title">
+                <h5>{{ item[0] }}</h5>
+              </h4>
+              <p class="card-text">
+                Calories: {{ item[1]*item[2] }}<br>
+                Servings: {{ item[2] }} <br>
+                  <!--
+                  Ingredients:
+                  {% for ing in item[3] %}
+                    {{ ing }},
+                  {% endfor %}
+                  -->
+                </p>
+            </div>
+            <div class="card-footer">
+              <a href="#" class="btn btn-primary">Full Recipe</a>
+            </div>
+          </div>
+{% endfor %}
+        </div>
+
+  </div>
+
+
+      </div>
+    </div>
 <div id="dropDownSelect1"></div>
+{% endif %}
 <footer class="py-5 bg-dark">
       <div class="container">
         <p class="m-0 text-center text-white">Copyright &copy; SudoFood 2018</p>
       </div>
       <!-- /.container -->
     </footer>
-
-
 {% endblock %}
+
 
 
 {%- block scripts %}
