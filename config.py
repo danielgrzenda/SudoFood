@@ -17,3 +17,6 @@ class Config(object):
     SQLALCHEMY_DATABASE_URI = os.environ.get(
         'DATABASE_URI') or 'sqlite:///' + os.path.join(basedir, 'app.db')
     SQLALCHEMY_TRACK_MODIFICATIONS = False
+    MONGODB_DB = 'sudofood_db'
+    MONGODB_HOST = '172.31.43.237'
+    MONGODB_PORT = '27017'
