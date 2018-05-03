@@ -10,7 +10,7 @@ import re
 import string
 import gensim
 
-from application import sims_rn, sims, servings, ingredients, nutrients, recipe_id, ENGLISH_STOP_WORDS
+from application import sims_rn, sims, servings, ingredients, nutrients, images, recipe_id, ENGLISH_STOP_WORDS
 
 
 @app.route('/')
@@ -213,7 +213,7 @@ def recommend(title):
     new_ing  = [ingredients[x] for x in sorted_sims if len(nutrients[x]) !=0]
     new_nutrition = [nutrients[x] for x in sorted_sims if len(nutrients[x])!=0]
     new_servings = [servings[x] for x in sorted_sims if len(nutrients[x])!=0]
-    
+    new_img = [images[x] for x in sorted_sims if len(nutrients[x])!=0]
     z = sorted(range(len([nutrients[x] for x in sorted_sims if len(nutrients[x]) !=0])),
            key=lambda x:[nutrients[y] for y in sorted_sims if len(nutrients[y]) !=0][x][0][2])
     
@@ -221,7 +221,7 @@ def recommend(title):
     print([(' '.join(rec_recipe[x].split('-')[:-1]),new_nutrition[x][0][2], 
             new_servings[x], new_ing[x]) for x in z])
     return [(' '.join(rec_recipe[x].split('-')[:-1]),new_nutrition[x][0][2], 
-            new_servings[x], new_ing[x]) for x in z]
+            new_servings[x], new_ing[x], new_img[x]) for x in z]
 
 @app.before_request
 def before_request():
