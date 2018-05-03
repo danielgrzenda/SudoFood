@@ -157,9 +157,39 @@
                 </p>
             </div>
             <div class="card-footer">
-              <a href="#" class="btn btn-primary">Full Recipe</a>
+              <a class="portfolio-link" data-toggle="modal" href="#1" >Full Recipe</a>
             </div>
           </div>
+
+            <div class="portfolio-modal modal fade" id="1" tabindex="-1" role="dialog" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                         <div class="modal-header">
+                            <h5 class="modal-title" id="1">{{ item[0] }}</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                            </button>
+                         </div>
+                        <div class="modal-body">
+                            <ul class="list-inline">
+                                <li>Calories: {{ item[1]*item[2] }}</li>
+                                <li>Servings: {{ item[2] }}</li>
+                                <li>Ingredients:</li>
+                                {% for ing in item[3] %}
+                                    <li>{{ ing }}</li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                  <button class="btn btn-primary" data-dismiss="modal" type="button">
+                    <i class="fa fa-times"></i>
+                    Close Recipe</button>
+                    </div>
+                </div>
+            </div>
+
+
+
+
 {% endfor %}
         </div>
             <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
