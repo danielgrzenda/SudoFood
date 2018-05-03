@@ -30,7 +30,7 @@
     <div class="row">
         <div class="col-lg-8 mb-4">
           <h3>Enter A Recipe</h3>
-          <form action="" method="post">
+          <form action="" method="post" onsubmit="gtag('event', 'search', {'event_category' : 'form', 'event_label' : 'search recipe'});">
             {{ form.hidden_tag() }}
             <div class="control-group form-group">
               <div class="controls">
