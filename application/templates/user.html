@@ -60,7 +60,7 @@ link href="{{bootstrap_find_resource('css/bootstrap.css', cdn='bootstrap')}}" re
 
       <div class="row">
 {% for recipe in recipes %}
-          {% if loop.index0 < 5 %}
+          {% if loop.index < 5 %}
         <div class="col-md-3 col-sm-6 mb-4">
           <a href="#">
             <img class="img-fluid" src="http://placehold.it/500x300" alt="">
@@ -77,8 +77,6 @@ link href="{{bootstrap_find_resource('css/bootstrap.css', cdn='bootstrap')}}" re
       <div class="container">
         <p class="m-0 text-center text-white">Copyright &copy; SudoFood 2018</p>
       </div>
-
-      <!-- /.container -->
 </footer>
 
 {% endblock %}

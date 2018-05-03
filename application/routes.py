@@ -34,7 +34,7 @@ def user(username):
     user = User.query.filter_by(username=username).first_or_404()
     if current_user.username == user.username:
         return render_template('user.html', title=current_user.username,
-                               user=user)
+                               user=user, recipes=InputRecipe.query.filter_by(user_id=current_user.id))
     return redirect(url_for('profile_unavailable'))
 
 
