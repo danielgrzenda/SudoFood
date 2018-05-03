@@ -32,6 +32,8 @@ with open('MachineLearning/picklefiles/nutrients.pkl','rb') as f:
 
 with open('MachineLearning/picklefiles/servings.pkl','rb') as f:
     servings = pickle.load(f)
+with open('MachineLearning/picklefiles/image_link.pkl','rb') as f:
+    images = pickle.load(f)
 
 ENGLISH_STOP_WORDS = frozenset([
         "a", "about", "above", "across", "after", "afterwards", "again", "against",

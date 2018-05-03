@@ -79,6 +79,7 @@ class InputRecipe(db.Model):
     title = db.Column(db.String(64))
     servings = db.Column(db.Integer)
     ingredients = db.Column(db.Text)
+    picture_url = db.Column(db.String(200))
 
     def __repr__(self):
         return '<Recipe %s>' % (self.title)
