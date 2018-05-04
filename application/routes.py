@@ -40,7 +40,8 @@ def user(username):
         return render_template('user.html', title=current_user.username,
                                user=user,
                                recipes=InputRecipe.query.
-                               filter_by(user_id=current_user.id).order_by(desc(InputRecipe.id)))
+                               filter_by(user_id=current_user.id)
+                               .order_by(desc(InputRecipe.id)))
     return redirect(url_for('profile_unavailable'))
 
 
@@ -224,7 +225,8 @@ def recommend(title):
                      != 0]
     new_servings = [servings[x] for x in sorted_sims if len(nutrients[x])
                     != 0]
-    new_img = [images[x] if images[x]!=0 else get_image(recipe_id[x]) for x in sorted_sims if len(nutrients[x]) != 0]
+    new_img = [images[x] if images[x]!= 0 else get_image(recipe_id[x]) for x
+               in sorted_sims if len(nutrients[x]) != 0]
     z = sorted(range(len([nutrients[x] for x in sorted_sims if
                           len(nutrients[x]) != 0])),
                key=lambda x: [nutrients[y] for y in sorted_sims if
@@ -248,9 +250,9 @@ def before_request():
 
 
 def get_image(word):
-    url="http://images.google.com/search?q="+word+"&tbm=isch&sout=1"
+    url = "http://images.google.com/search?q=" + word + "&tbm=isch&sout=1"
     driver.get(url)
-    imageXpathSelector='//*[@id="ires"]/table/tbody/tr[1]/td[1]/a/img'
-    img=driver.find_element_by_xpath(imageXpathSelector)
-    src=(img.get_attribute('src'))
+    imageXpathSelector = '//*[@id="ires"]/table/tbody/tr[1]/td[1]/a/img'
+    img = driver.find_element_by_xpath(imageXpathSelector)
+    src = (img.get_attribute('src'))
     return src
