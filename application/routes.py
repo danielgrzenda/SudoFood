@@ -224,7 +224,7 @@ def recommend(title):
                      != 0]
     new_servings = [servings[x] for x in sorted_sims if len(nutrients[x])
                     != 0]
-    new_img = [images[x] for x in sorted_sims if len(nutrients[x]) != 0]
+    new_img = [images[x] if images[x]!=0 else get_image(recipe_id[x]) for x in sorted_sims if len(nutrients[x]) != 0]
     z = sorted(range(len([nutrients[x] for x in sorted_sims if
                           len(nutrients[x]) != 0])),
                key=lambda x: [nutrients[y] for y in sorted_sims if
