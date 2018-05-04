@@ -9,6 +9,7 @@ from datetime import datetime
 import re
 import string
 import gensim
+from google_images_download import google_images_download
 
 from application import sims_rn, sims, servings, \
     ingredients, nutrients, images, recipe_id, ENGLISH_STOP_WORDS
@@ -172,7 +173,8 @@ def enter_recipe():
         recipe = InputRecipe(title=form.title.data,
                              servings=form.servings.data,
                              ingredients=form.ingredients.data,
-                             user_id=current_user.id)
+                             user_id=current_user.id
+                             picture_url=get_image(form.title.data))
         db.session.add(recipe)
         db.session.commit()
 
@@ -241,3 +243,7 @@ def before_request():
     if current_user.is_authenticated:
         current_user.last_seen = datetime.utcnow()
         db.session.commit()
+
+def get_image(title):
+    response = google_images_download.googleimagesdownload()
+    arguments = {'keyword':title,limit:'1'}
