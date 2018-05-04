@@ -14,9 +14,9 @@ app = Flask(__name__)
 app.config.from_object(Config)
 driver = 'postgresql+psycopg2://'
 app.config['SQLALCHEMY_DATABASE_URI'] = driver \
-                                        + os.environ['sudofood'] + ':' + os.environ['sudofood'] \
-                                        +'@' + os.environ['sudofood.cgptsfhoz7r3.us-west-2.rds.amazonaws.com']  +  ':' + os.environ['5432'] \
-                                        + '/' + os.environ['sudofood']
+                                        + 'sudofood' + ':' + 'sudofood' \
+                                        +'@' + 'sudofood.cgptsfhoz7r3.us-west-2.rds.amazonaws.com'  +  ':' + '5432' \
+                                        + '/' + 'sudofood'
 
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
