@@ -33,10 +33,15 @@
             
   <div class="section" id="how-to-launch-sudofood">
 <h1>How to Launch SudoFood<a class="headerlink" href="#how-to-launch-sudofood" title="Permalink to this headline">¶</a></h1>
+<p>If you are running this for the first time:</p>
+<p>$pip install virtualenv (if you do not already have this)</p>
+<p>$virtualenv --python python3 venv</p>
+<p>Start here if you have done the previous steps already</p>
 <p>$source venv/bin/activate</p>
-<p>$export FLASK_APP=sudofood.py</p>
 <p>$pip3 install -r requirements.txt</p>
-<p>$pip install flask-bootstrap4</p>
+<p>$export FLASK_APP=sudofood.py</p>
+<p>$flask run</p>
+<p>If you are running it on a ec2 instance to visit:</p>
 <p>$sudo /anaconda3/bin/python3.6 -m flask run --host=0.0.0.0 --port=80</p>
 <p>Go to <a class="reference external" href="http://localhost:80">http://localhost:80</a></p>
 </div>
