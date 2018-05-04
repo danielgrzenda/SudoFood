@@ -1,26 +1,15 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
     <title>Auto Generated Documentation &#8212; SudoFood  documentation</title>
-    
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    './',
-        VERSION:     '',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true,
-        SOURCELINK_SUFFIX: '.txt'
-      };
-    </script>
+    <script type="text/javascript" src="_static/documentation_options.js"></script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
@@ -33,8 +22,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
-  </head>
-  <body role="document">
+  </head><body>
   
 
     <div class="document">
@@ -60,6 +48,11 @@
 <dl class="attribute">
 <dt id="application.models.InputRecipe.ingredients">
 <code class="descname">ingredients</code><a class="headerlink" href="#application.models.InputRecipe.ingredients" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="application.models.InputRecipe.picture_url">
+<code class="descname">picture_url</code><a class="headerlink" href="#application.models.InputRecipe.picture_url" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="attribute">
@@ -224,7 +217,7 @@
 
 <dl class="function">
 <dt id="application.routes.edit_profile">
-<code class="descclassname">application.routes.</code><code class="descname">edit_profile</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/application/routes.html#edit_profile"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#application.routes.edit_profile" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">application.routes.</code><code class="descname">edit_profile</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/application/routes.html#edit_profile"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#application.routes.edit_profile" title="Permalink to this definition">¶</a></dt>
 <dd><p>Fills out a form to change your different settings of your profile</p>
 <dl class="docutils">
 <dt>Return:</dt>
@@ -234,11 +227,23 @@
 
 <dl class="function">
 <dt id="application.routes.enter_recipe">
-<code class="descclassname">application.routes.</code><code class="descname">enter_recipe</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/application/routes.html#enter_recipe"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#application.routes.enter_recipe" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">application.routes.</code><code class="descname">enter_recipe</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/application/routes.html#enter_recipe"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#application.routes.enter_recipe" title="Permalink to this definition">¶</a></dt>
 <dd><p>Enter your recipe you want to search</p>
 <dl class="docutils">
 <dt>Return:</dt>
 <dd>Enter recipe html page where you input info for a recipe form</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="application.routes.get_image">
+<code class="descclassname">application.routes.</code><code class="descname">get_image</code><span class="sig-paren">(</span><em>word</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/application/routes.html#get_image"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#application.routes.get_image" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets image to show for the recipe</p>
+<dl class="docutils">
+<dt>Parameter</dt>
+<dd>word (str obj)</dd>
+<dt>Return</dt>
+<dd>returns image from google</dd>
 </dl>
 </dd></dl>
 
@@ -253,14 +258,14 @@
 <dd><p>Route to login page</p>
 <dl class="docutils">
 <dt>Return:</dt>
-<dd>If the user&#8217;s information is saved, sends them to their profile
+<dd>If the user’s information is saved, sends them to their profile
 If not the user goes to a loginform asking for information to log in</dd>
 </dl>
 </dd></dl>
 
 <dl class="function">
 <dt id="application.routes.logout">
-<code class="descclassname">application.routes.</code><code class="descname">logout</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/application/routes.html#logout"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#application.routes.logout" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">application.routes.</code><code class="descname">logout</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/application/routes.html#logout"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#application.routes.logout" title="Permalink to this definition">¶</a></dt>
 <dd><p>Logs out user</p>
 <dl class="docutils">
 <dt>Return:</dt>
@@ -274,6 +279,19 @@ If not the user goes to a loginform asking for information to log in</dd>
 <dd></dd></dl>
 
 <dl class="function">
+<dt id="application.routes.recommend">
+<code class="descclassname">application.routes.</code><code class="descname">recommend</code><span class="sig-paren">(</span><em>title</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/application/routes.html#recommend"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#application.routes.recommend" title="Permalink to this definition">¶</a></dt>
+<dd><p>Recommends based on the title of the recipe</p>
+<dl class="docutils">
+<dt>Parameter:</dt>
+<dd>title (str obj)</dd>
+<dt>Return:</dt>
+<dd>Returns the recipes closest to the titled recipe with least amount of
+calories</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
 <dt id="application.routes.register">
 <code class="descclassname">application.routes.</code><code class="descname">register</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/application/routes.html#register"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#application.routes.register" title="Permalink to this definition">¶</a></dt>
 <dd><p>Checks if username/email</p>
@@ -285,8 +303,30 @@ the log in page.</dd>
 </dd></dl>
 
 <dl class="function">
+<dt id="application.routes.similarity_object">
+<code class="descclassname">application.routes.</code><code class="descname">similarity_object</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/application/routes.html#similarity_object"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#application.routes.similarity_object" title="Permalink to this definition">¶</a></dt>
+<dd><p>Finds similar objects</p>
+<dl class="docutils">
+<dt>Return</dt>
+<dd>dictionary of recipes and their tf_idf value</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="application.routes.tokeniser">
+<code class="descclassname">application.routes.</code><code class="descname">tokeniser</code><span class="sig-paren">(</span><em>text</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/application/routes.html#tokeniser"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#application.routes.tokeniser" title="Permalink to this definition">¶</a></dt>
+<dd><p>Tokenizes all the text</p>
+<dl class="docutils">
+<dt>Parameters:</dt>
+<dd>text (str obj)</dd>
+<dt>Return:</dt>
+<dd>a list of all words with length &gt;1 and that are not stop words</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
 <dt id="application.routes.user">
-<code class="descclassname">application.routes.</code><code class="descname">user</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/application/routes.html#user"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#application.routes.user" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">application.routes.</code><code class="descname">user</code><span class="sig-paren">(</span><em>username</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/application/routes.html#user"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#application.routes.user" title="Permalink to this definition">¶</a></dt>
 <dd><p>Route to users page</p>
 <dl class="docutils">
 <dt>Parameters:</dt>
@@ -298,11 +338,11 @@ the log in page.</dd>
 
 <dl class="function">
 <dt id="application.routes.your_recipes">
-<code class="descclassname">application.routes.</code><code class="descname">your_recipes</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/application/routes.html#your_recipes"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#application.routes.your_recipes" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">application.routes.</code><code class="descname">your_recipes</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/application/routes.html#your_recipes"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#application.routes.your_recipes" title="Permalink to this definition">¶</a></dt>
 <dd><p>Route to your_recipes page</p>
 <dl class="docutils">
 <dt>Return:</dt>
-<dd>the user&#8217;s saved recipes webpage</dd>
+<dd>the user’s saved recipes webpage</dd>
 </dl>
 </dd></dl>
 
@@ -333,18 +373,20 @@ the log in page.</dd>
 <h3>Related Topics</h3>
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="index.html" title="previous chapter">Welcome to SudoFood&#8217;s documentation!</a></li>
+      <li>Previous: <a href="index.html" title="previous chapter">Welcome to SudoFood’s documentation!</a></li>
   </ul></li>
 </ul>
 </div>
 <div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
+    <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <div><input type="text" name="q" /></div>
-      <div><input type="submit" value="Go" /></div>
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
+    </div>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
@@ -355,7 +397,7 @@ the log in page.</dd>
       &copy;2018, me.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.5.6</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.7.4</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
       
       |

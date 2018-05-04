@@ -191,6 +191,15 @@ def enter_recipe():
 
 
 def tokeniser(text):
+    """
+    Tokenizes all the text
+
+    Parameters:
+        text (str obj)
+
+    Return:
+        a list of all words with length >1 and that are not stop words
+    """
     regex = re.compile('[' + re.escape(string.punctuation) + '0-9\\r\\t\\n]')
     text = regex.sub(" ", text.lower())
     words = text.split(" ")
@@ -200,6 +209,12 @@ def tokeniser(text):
 
 
 def similarity_object():
+    """
+    Finds similar objects
+
+    Return
+        dictionary of recipes and their tf_idf value
+    """
     new_rec = [' '.join(x.split('-')[:-1]) for x in recipe_id]
     gen_docs = [[w.lower() for w in tokeniser(text)] for text in new_rec]
     dictionary = gensim.corpora.Dictionary(gen_docs)
@@ -214,6 +229,16 @@ def similarity_object():
 
 
 def recommend(title):
+    """
+    Recommends based on the title of the recipe
+
+    Parameter:
+        title (str obj)
+
+    Return:
+        Returns the recipes closest to the titled recipe with least amount of
+        calories
+    """
     dictionary, tf_idf = similarity_object()
     query_doc = [w.lower() for w in tokeniser(title)]
     query_doc_bow = dictionary.doc2bow(query_doc)
@@ -250,6 +275,15 @@ def before_request():
 
 
 def get_image(word):
+    """
+    Gets image to show for the recipe
+
+    Parameter
+        word (str obj)
+
+    Return
+        returns image from google
+    """
     url = "http://images.google.com/search?q=" + word + "&tbm=isch&sout=1"
     driver.get(url)
     imageXpathSelector = '//*[@id="ires"]/table/tbody/tr[1]/td[1]/a/img'
