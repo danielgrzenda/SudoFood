@@ -10,7 +10,8 @@ import re
 import string
 import gensim
 
-from application import sims_rn, sims, servings, ingredients, nutrients, images, recipe_id, ENGLISH_STOP_WORDS
+from application import sims_rn, sims, servings, \
+    ingredients, nutrients, images, recipe_id, ENGLISH_STOP_WORDS
 
 
 @app.route('/')
@@ -34,7 +35,9 @@ def user(username):
     user = User.query.filter_by(username=username).first_or_404()
     if current_user.username == user.username:
         return render_template('user.html', title=current_user.username,
-                               user=user, recipes=InputRecipe.query.filter_by(user_id=current_user.id))
+                               user=user,
+                               recipes=InputRecipe.query.
+                               filter_by(user_id=current_user.id))
     return redirect(url_for('profile_unavailable'))
 
 
@@ -172,12 +175,12 @@ def enter_recipe():
                              user_id=current_user.id)
         db.session.add(recipe)
         db.session.commit()
-        
+
         ten_similar = recommend(recipe.title)
-        
-        return render_template("enter_recipe.html",title="Recommended",
-                form=form, similar=ten_similar)
-        
+
+        return render_template("enter_recipe.html", title="Recommended",
+                               form=form, similar=ten_similar)
+
     return render_template("enter_recipe.html", title="Enter Recipe",
                            form=form, similar=None)
 
@@ -197,31 +200,38 @@ def similarity_object():
     dictionary = gensim.corpora.Dictionary(gen_docs)
     corpus = [dictionary.doc2bow(gen_doc) for gen_doc in gen_docs]
     tf_idf = gensim.models.TfidfModel(corpus)
-    # sim_generator = gensim.similarities.Similarity('MachineLearning/picklefiles/',tf_idf[corpus],num_features=len(dictionary))
+    # sim_generator = gensim.similarities.Similarity('MachineLearning/
+    # picklefiles/',tf_idf[corpus],num_features=len(dictionary))
     # sim_generator.save('similarity_recipe_name1')
-    # sims_rn = gensim.similarities.Similarity.load('similarity_recipe_name1', mmap=None)
-    return dictionary,tf_idf
+    # sims_rn = gensim.similarities.Similarity.load
+    # ('similarity_recipe_name1', mmap=None)
+    return dictionary, tf_idf
 
 
 def recommend(title):
-    dictionary,tf_idf = similarity_object()
+    dictionary, tf_idf = similarity_object()
     query_doc = [w.lower() for w in tokeniser(title)]
     query_doc_bow = dictionary.doc2bow(query_doc)
     query_doc_tf_idf = tf_idf[query_doc_bow]
     sorted_sims = sims_rn[query_doc_tf_idf].argsort()[-5:][::-1]
-    rec_recipe = [recipe_id[x] for x in sorted_sims if len(nutrients[x]) !=0]
-    new_ing  = [ingredients[x] for x in sorted_sims if len(nutrients[x]) !=0]
-    new_nutrition = [nutrients[x] for x in sorted_sims if len(nutrients[x])!=0]
-    new_servings = [servings[x] for x in sorted_sims if len(nutrients[x])!=0]
-    new_img = [images[x] for x in sorted_sims if len(nutrients[x])!=0]
-    z = sorted(range(len([nutrients[x] for x in sorted_sims if len(nutrients[x]) !=0])),
-           key=lambda x:[nutrients[y] for y in sorted_sims if len(nutrients[y]) !=0][x][0][2])
-    
+    rec_recipe = [recipe_id[x] for x in sorted_sims if len(nutrients[x]) != 0]
+    new_ing = [ingredients[x] for x in sorted_sims if len(nutrients[x]) != 0]
+    new_nutrition = [nutrients[x] for x in sorted_sims if len(nutrients[x])
+                     != 0]
+    new_servings = [servings[x] for x in sorted_sims if len(nutrients[x])
+                    != 0]
+    new_img = [images[x] for x in sorted_sims if len(nutrients[x]) != 0]
+    z = sorted(range(len([nutrients[x] for x in sorted_sims if
+                          len(nutrients[x]) != 0])),
+               key=lambda x: [nutrients[y] for y in sorted_sims if
+                              len(nutrients[y]) != 0][x][0][2])
+
     rec_ing = [new_ing[x] for x in z]
-    print([(' '.join(rec_recipe[x].split('-')[:-1]),new_nutrition[x][0][2], 
+    print([(' '.join(rec_recipe[x].split('-')[:-1]), new_nutrition[x][0][2],
             new_servings[x], new_ing[x]) for x in z])
-    return [(' '.join(rec_recipe[x].split('-')[:-1]),new_nutrition[x][0][2], 
+    return [(' '.join(rec_recipe[x].split('-')[:-1]), new_nutrition[x][0][2],
             new_servings[x], new_ing[x], new_img[x]) for x in z]
+
 
 @app.before_request
 def before_request():
@@ -231,6 +241,3 @@ def before_request():
     if current_user.is_authenticated:
         current_user.last_seen = datetime.utcnow()
         db.session.commit()
-
-
-
