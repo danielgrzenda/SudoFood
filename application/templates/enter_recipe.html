@@ -6,11 +6,12 @@
 {% endblock %}
 
 {%- block styles %}
-    <link href="{{bootstrap_find_resource('css/bootstrap.css', cdn='bootstrap')}}" rel="stylesheet">
+<link href="{{bootstrap_find_resource('css/bootstrap.css', cdn='bootstrap')}}" rel="stylesheet">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
+
     <title>SudoFood - Enter Recipe</title>
 
     <!-- Bootstrap core CSS -->
@@ -21,6 +22,7 @@
 
 
 {%- endblock styles %}
+
 {% include "header.html" %}
 
 {% block content %}
@@ -28,6 +30,7 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-8 mb-4">
+            <br>
           <h3>Enter A Recipe</h3>
           <form action="" method="post" onsubmit="gtag('event', 'search', {'event_category' : 'form', 'event_label' : 'search recipe'});">
             {{ form.hidden_tag() }}
@@ -81,6 +84,7 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-8 mb-4">
+            <br>
           <h3>Enter A Recipe</h3>
           <form action="" method="post">
             {{ form.hidden_tag() }}
@@ -177,34 +181,22 @@
             </div>
           </div>
         </div>
-
         {% endfor %}
     </div>
     <br>
 </div>
-
 {% endif %}
 
-
 <div id="dropDownSelect1"></div>
+
 <footer class="py-5 bg-dark">
       <div class="container">
         <p class="m-0 text-center text-white">Copyright &copy; SudoFood 2018</p>
       </div>
     </footer>
+
 {% endblock %}
 
 
 
-{%- block scripts %}
 
-    <!-- Bootstrap core JavaScript -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-    <!-- Contact form JavaScript -->
-    <!-- Do not edit these files! In order to set the email address and subject line for the contact form go to the bin/contact_me.php file. -->
-    <script src="js/jqBootstrapValidation.js"></script>
-    <script src="js/contact_me.js"></script>
-
-{%- endblock scripts %}
