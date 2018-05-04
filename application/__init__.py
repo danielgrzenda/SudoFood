@@ -13,10 +13,10 @@ from selenium.webdriver.chrome.options import Options
 app = Flask(__name__)
 app.config.from_object(Config)
 driver = 'postgresql+psycopg2://'
-app.config['SQLALCHEMY_DATABASE_URI'] = driver \
-                                        + 'sudofood' + ':' + 'sudofood' \
-                                        +'@' + 'sudofood.cgptsfhoz7r3.us-west-2.rds.amazonaws.com'  +  ':' + '5432' \
-                                        + '/' + 'sudofood'
+app.config['SQLALCHEMY_DATABASE_URI'] = \
+ driver + 'sudofood' + ':' + 'sudofood' \
+ + '@' + 'sudofood.cgptsfhoz7r3.us-west-2.rds.amazonaws.com' + ':' + '5432' \
+ + '/' + 'sudofood'
 
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
@@ -47,7 +47,8 @@ with open('MachineLearning/picklefiles/image_link.pkl', 'rb') as f:
 
 options = Options()
 options.add_argument("--headless")
-driver = webdriver.Chrome('/usr/local/bin/chromedriver', chrome_options = options)
+driver = webdriver.Chrome('/usr/local/bin/chromedriver',
+                          chrome_options=options)
 driver.get('http://www.google.com')
 
 ENGLISH_STOP_WORDS = frozenset([
