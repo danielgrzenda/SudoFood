@@ -7,6 +7,8 @@ from flask_bootstrap import Bootstrap
 from flask_mongoengine import MongoEngine
 import gensim
 import pickle
+from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
 
 app = Flask(__name__)
 app.config.from_object(Config)
@@ -34,8 +36,14 @@ with open('MachineLearning/picklefiles/nutrients.pkl', 'rb') as f:
 
 with open('MachineLearning/picklefiles/servings.pkl', 'rb') as f:
     servings = pickle.load(f)
+
 with open('MachineLearning/picklefiles/image_link.pkl', 'rb') as f:
     images = pickle.load(f)
+
+options = Options()
+options.add_argument("--headless")
+driver = webdriver.Chrome('/usr/local/bin/chromedriver', chrome_options = options)
+driver.get('http://www.google.com')
 
 ENGLISH_STOP_WORDS = frozenset([
  "a", "about", "above", "across", "after", "afterwards", "again",

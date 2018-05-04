@@ -9,10 +9,12 @@ from datetime import datetime
 import re
 import string
 import gensim
+from sqlalchemy import desc
 from google_images_download import google_images_download
 
 from application import sims_rn, sims, servings, \
-    ingredients, nutrients, images, recipe_id, ENGLISH_STOP_WORDS
+    ingredients, nutrients, images, recipe_id, ENGLISH_STOP_WORDS, \
+    driver
 
 
 @app.route('/')
@@ -38,7 +40,7 @@ def user(username):
         return render_template('user.html', title=current_user.username,
                                user=user,
                                recipes=InputRecipe.query.
-                               filter_by(user_id=current_user.id))
+                               filter_by(user_id=current_user.id).order_by(desc(InputRecipe.id)))
     return redirect(url_for('profile_unavailable'))
 
 
@@ -174,7 +176,7 @@ def enter_recipe():
                              servings=form.servings.data,
                              ingredients=form.ingredients.data,
                              user_id=current_user.id,
-                             picture_url='')
+                             picture_url=get_image(form.title.data))
         db.session.add(recipe)
         db.session.commit()
 
@@ -245,6 +247,10 @@ def before_request():
         db.session.commit()
 
 
-def get_image(title):
-    response = google_images_download.googleimagesdownload()
-    arguments = {'keyword': title, limit: '1'}
+def get_image(word):
+    url="http://images.google.com/search?q="+word+"&tbm=isch&sout=1"
+    driver.get(url)
+    imageXpathSelector='//*[@id="ires"]/table/tbody/tr[1]/td[1]/a/img'
+    img=driver.find_element_by_xpath(imageXpathSelector)
+    src=(img.get_attribute('src'))
+    return src
