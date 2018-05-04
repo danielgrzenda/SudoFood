@@ -6,22 +6,21 @@
 {% endblock %}
 
 {%- block styles %}
-<link href="{{bootstrap_find_resource('css/bootstrap.css', cdn='bootstrap')}}" rel="stylesheet">
-<meta charset="utf-8">
+    <link href="{{bootstrap_find_resource('css/bootstrap.css', cdn='bootstrap')}}" rel="stylesheet">
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-<title>SudoFood - Enter Recipe</title>
+    <title>SudoFood - Enter Recipe</title>
 
     <!-- Bootstrap core CSS -->
     <link href="{{url_for('static', filename='vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="{{url_for('static', filename='css/modern-business.css')}}" rel="stylesheet">
+    <!--<link href="{{url_for('static', filename='css/modern-business.css')}}" rel="stylesheet">-->
 
 
 {%- endblock styles %}
-
 {% include "header.html" %}
 
 {% block content %}

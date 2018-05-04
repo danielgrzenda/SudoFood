@@ -1,12 +1,10 @@
 {% extends 'bootstrap/base.html' %}
-
 {% block head %}
     {{ super() }}
     {% include 'google_analytics.html' %}
 {% endblock %}
-
-{%- block styles %}
-link href="{{bootstrap_find_resource('css/bootstrap.css', cdn='bootstrap')}}" rel="stylesheet">
+{% block styles %}
+    <link href="{{bootstrap_find_resource('css/bootstrap.css', cdn='bootstrap')}}" rel="stylesheet">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
@@ -18,11 +16,10 @@ link href="{{bootstrap_find_resource('css/bootstrap.css', cdn='bootstrap')}}" re
     <link href="{{url_for('static', filename='vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="{{url_for('static', filename='css/modern-business.css')}}" rel="stylesheet">
-{%- endblock styles %}
+    <!--<link href="{{url_for('static', filename='css/modern-business.css')}}" rel="stylesheet">-->
+{% endblock styles %}
 
 {% include "header.html" %}
-<!---USER PROFILE IS EQUAL TO PROFILE ITEM--->
 
 {% block content %}
     <div class="container">
@@ -81,7 +78,7 @@ link href="{{bootstrap_find_resource('css/bootstrap.css', cdn='bootstrap')}}" re
 
 {% endblock %}
 
-        {%- block scripts %}
+{%- block scripts %}
 <!-- Bootstrap core JavaScript -->
     <script src="{{url_for('static', filename='vendor/jquery/jquery.min.js')}}"></script>
     <script src="{{url_for('static', filename='vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>

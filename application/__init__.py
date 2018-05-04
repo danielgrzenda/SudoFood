@@ -5,7 +5,6 @@ from flask_migrate import Migrate
 from flask_login import LoginManager
 from flask_bootstrap import Bootstrap
 from flask_mongoengine import MongoEngine
-from application import routes, models
 import gensim
 import pickle
 
@@ -88,3 +87,4 @@ ENGLISH_STOP_WORDS = frozenset([
  'package', 'oz', 'room', 'temperature', 'ounce'])
 
 # avoids the circular imports
+from application import routes, models

@@ -173,8 +173,8 @@ def enter_recipe():
         recipe = InputRecipe(title=form.title.data,
                              servings=form.servings.data,
                              ingredients=form.ingredients.data,
-                             user_id=current_user.id
-                             picture_url=get_image(form.title.data))
+                             user_id=current_user.id,
+                             picture_url='')
         db.session.add(recipe)
         db.session.commit()
 
