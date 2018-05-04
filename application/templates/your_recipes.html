@@ -29,23 +29,25 @@
 <div class="container">
         <h1 class="mt-4 mb-3">Your Recipes
       </h1>
-{% for recipe in recipes %}
       <div class="row">
-        <div class="col-md-7">
-          <a href="#">
-            <img class="img-fluid rounded mb-3 mb-md-0" src="{{ recipe.picture_url }}" style="width:200;height:200;" alt="" onmouseover="gtag('event', 'hover', {'event category' : 'recipe', 'event_label' : 'image-hover'})">
-          </a>
+          {% for recipe in recipes %}
+        <div class="col-lg-4 col-sm-6 portfolio-item">
+          <div class="card h-50">
+            <a href="#"><img class="img-fluid rounded mb-3 mb-md-0" src="{{ recipe.picture_url }}" style="height:200px;width:300px;" alt="" onmouseover="gtag('event', 'hover', {'event category' : 'recipe', 'event_label' : 'image-hover'})"></a>
+            <div class="card-body">
+              <h4 class="card-title">
+                <a href="#">{{ recipe.title }}</a>
+              </h4>
+              <p class="card-text">
+                Servings: {{ recipe.servings }}<br>
+                Ingredients: {{ recipe.ingredients }}</p>
+            </div>
+          </div>
         </div>
-        <div class="col-md-5" onmouseover="gtag('event', 'hover', {'event category' : 'recipe', 'event_label' : 'recipe-hover'})">
-          <h3>{{ recipe.title }}</h3>
-            <p>Servings: {{ recipe.servings }}</p>
-          <p> Ingredients: {{ recipe.ingredients }} </p>
-        </div>
-      </div>
-
-      <hr>
-{% endfor %}
+          {% endfor %}
     </div>
+
+</div>
 
 <div id="dropDownSelect1"></div>
 
