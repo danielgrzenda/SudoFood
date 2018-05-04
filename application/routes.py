@@ -244,6 +244,7 @@ def before_request():
         current_user.last_seen = datetime.utcnow()
         db.session.commit()
 
+
 def get_image(title):
     response = google_images_download.googleimagesdownload()
-    arguments = {'keyword':title,limit:'1'}
+    arguments = {'keyword': title, limit: '1'}
