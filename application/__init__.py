@@ -12,7 +12,12 @@ from selenium.webdriver.chrome.options import Options
 
 app = Flask(__name__)
 app.config.from_object(Config)
-db2 = MongoEngine()
+driver = 'postgresql+psycopg2://'
+app.config['SQLALCHEMY_DATABASE_URI'] = driver \
+                                        + os.environ['sudofood'] + ':' + os.environ['sudofood'] \
+                                        +'@' + os.environ['sudofood.cgptsfhoz7r3.us-west-2.rds.amazonaws.com']  +  ':' + os.environ['5432'] \
+                                        + '/' + os.environ['sudofood']
+
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 login = LoginManager(app)
