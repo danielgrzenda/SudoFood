@@ -45,11 +45,11 @@ with open('MachineLearning/picklefiles/servings.pkl', 'rb') as f:
 with open('MachineLearning/picklefiles/image_link.pkl', 'rb') as f:
     images = pickle.load(f)
 
-options = Options()
-options.add_argument("--headless")
-driver = webdriver.Chrome('/usr/local/bin/chromedriver',
-                          chrome_options=options)
-driver.get('http://www.google.com')
+# options = Options()
+# options.add_argument("headless")
+# driver = webdriver.Chrome('/usr/local/bin/chromedriver',
+#                           chrome_options=options)
+# driver.get('http://www.google.com')
 
 ENGLISH_STOP_WORDS = frozenset([
  "a", "about", "above", "across", "after", "afterwards", "again",
